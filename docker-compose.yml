@@ -1,0 +1,134 @@
+version: '3'
+services:
+    jenkins:
+      build: jenkins
+      container_name: jenkins
+      volumes: 
+        - ./var/jenkins_home:/var/jenkins_home
+        - ./var/run:/var/run:ro
+      environment:
+        - TZ=Asia/Seoul
+      ports:
+        - "18080:8080"
+        - "50000:50000"
+        - "18081:8081"
+      privileged: true
+      user: root
+      networks:
+        mynet:
+          ipv4_address: 192.168.10.100
+
+    dns:
+      build: dns
+      restart: always
+      ports:
+        - "5300:53/udp"
+        - "5300:53/tcp"
+        - "10000:10000/tcp"
+      volumes:
+        - ./dns/etc/named.conf.options:/etc/bind/named.conf.options
+        - ./dns/etc/named.conf.local:/etc/bind/named.conf.local
+        - ./dns/etc/ghkdtlwns987.com.zone:/var/cache/bind/ghkdtlwns987.com.zone
+        - ./dns/etc/ghkdtlwns987.com.zone.rev:/var/cache/bind/ghkdtlwns987.com.zone.rev
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.100
+      stdin_open: true
+      tty: true
+      privileged: true
+      user: root
+      container_name: dns
+      hostname: ghkdtlwns987
+
+    web1:
+      build: web1
+      tty: true
+      privileged: true
+      user: root
+      ports:
+        - "4480:80/tcp"
+        - "4480:80/udp"
+        - "4430:80/tcp"
+        - "4430:80/udp"
+      container_name: web1
+      hostname: web1
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.10
+
+    web2:
+      build: web2
+      tty: true
+      privileged: true
+      user: root
+      ports:
+        - "4481:80/tcp"
+        - "4481:80/udp"
+        - "4431:80/tcp"
+        - "4431:80/udp"
+      container_name: web2
+      hostname: web2
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.11
+
+
+    db1:
+      build: db1
+      restart: always
+      stdin_open: true
+      tty: true
+      privileged: true
+      user: root
+      ports:
+        - "13306:3306"
+
+      container_name: db1
+      hostname: db1
+      command:
+        - --character-set-server=utf8mb4
+        - --collation-server=utf8mb4_unicode_ci
+      environment:
+        MYSQL_DATABASE: db1
+        MYSQL_USER: 'user'
+        MYSQL_USER_PASSWORD: 'root'
+        MYSQL_ROOT_PASSWORD: 'root'
+        TZ: Asia/Seoul
+
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.20
+
+    db2:
+      build: db2
+      restart: always
+      tty: true
+      privileged: true
+      user: root
+      ports:
+        - "13307:3306"
+
+      container_name: db2
+      hostname: db2
+      command:
+        - --character-set-server=utf8mb4
+        - --collation-server=utf8mb4_unicode_ci
+      environment:
+        MYSQL_DATABASE: 'db2'
+        MYSQL_USER: 'user'
+        MYSQL_USER_PASSWORD: 'root'
+        MYSQL_ROOT_PASSWORD: 'root'
+
+        TZ: Asia/Seoul
+
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.21
+
+networks:
+  mynet:
+    ipam:
+      driver: default
+      config:
+        - subnet: 192.168.0.0/16
+          gateway: 192.168.0.1

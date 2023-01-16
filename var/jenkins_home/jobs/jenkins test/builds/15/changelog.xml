@@ -1,0 +1,9 @@
+commit 826e7d7b94a3fd2d06d13b5e2201389771909599
+tree 0e332024ed378ab19e03240cd94504e3eac71c2d
+parent 649bfa139d0ea7173481ab58293ec0c23e7294e0
+author ghkdtlwns987 <54488922+ghkdtlwns987@users.noreply.github.com> 2023-01-16 01:38:15 +0900
+committer GitHub <noreply@github.com> 2023-01-16 01:38:15 +0900
+
+    Update build.gradle
+
+:100644 100644 3fab7cfdb2ea630205d57d1bd9e791bdb805258c 1639d418aff3d7ba60f55ee81ffb63819f13c1b7 M	build.gradle

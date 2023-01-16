@@ -1,0 +1,18 @@
+commit 649bfa139d0ea7173481ab58293ec0c23e7294e0
+tree cd66ad6f217aaa44e95f42197673d2ef8eabe14b
+parent bc8d14e3eb7024b84449946123cceb8d6318bd3e
+author ghkdtlwns987 <54488922+ghkdtlwns987@users.noreply.github.com> 2023-01-16 01:22:57 +0900
+committer GitHub <noreply@github.com> 2023-01-16 01:22:57 +0900
+
+    Update build.gradle
+
+:100644 100644 379571a0eb32bf387a647ad0d217c9bed110c780 3fab7cfdb2ea630205d57d1bd9e791bdb805258c M	build.gradle
+commit bc8d14e3eb7024b84449946123cceb8d6318bd3e
+tree 09d361b5842a1d131cb5c86c6cfc97a3307b67b9
+parent 108e7dcb2bff3fd6c659e7c131194d29e0553aa7
+author ghkdtlwns987 <54488922+ghkdtlwns987@users.noreply.github.com> 2023-01-16 01:16:49 +0900
+committer GitHub <noreply@github.com> 2023-01-16 01:16:49 +0900
+
+    Update application.properties
+
+:100644 100644 b61d9f417422dc2bb7e660b6b22e47de59df4ae5 1aaec7f5c6563d3fccb933f8ddf879737ff10e3b M	src/main/resources/application.properties

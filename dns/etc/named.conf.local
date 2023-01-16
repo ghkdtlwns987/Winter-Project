@@ -1,0 +1,19 @@
+//
+// Do any local configuration here
+//
+
+// Consider adding the 1918 zones here, if they are not used in your
+// organization
+//include "/etc/bind/zones.rfc1918";
+
+// FORWARD ZONE
+zone "ghkdtlwns987.com" IN {
+        type master;
+        file "/var/cache/bind/ghkdtlwns987.com.zone";
+};
+
+// REVERSE ZONE
+zone "0.168.192.in-addr.arpa" IN {
+        type master;
+        file "/var/cache/bind/ghkdtlwns987.com.zone.rev";
+};

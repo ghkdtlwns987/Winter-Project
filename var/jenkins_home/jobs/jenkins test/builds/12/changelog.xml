@@ -1,0 +1,9 @@
+commit 108e7dcb2bff3fd6c659e7c131194d29e0553aa7
+tree de6d0a0cb60989a548a80f0c68f2247319ebafe5
+parent 1656077480677ee62c5b0d8de4919ef3bc8544fc
+author ghkdtlwns987 <54488922+ghkdtlwns987@users.noreply.github.com> 2023-01-16 00:47:10 +0900
+committer GitHub <noreply@github.com> 2023-01-16 00:47:10 +0900
+
+    Update application.properties
+
+:100644 100644 bdfc40439e31acafdfc2ca09f48907c56bb0feed b61d9f417422dc2bb7e660b6b22e47de59df4ae5 M	src/main/resources/application.properties

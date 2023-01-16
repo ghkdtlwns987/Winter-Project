@@ -1,0 +1,34 @@
+Started by user [8mha:////4NHeuUs+l/Vd7mUlclg7tdAy3FzNQydAmXsml/h3fok/AAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL9rNS87My8YgDGtiJjwgAAAA==[0mjenkins
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/jenkins test
+Unable to auto-install JDK until the license is accepted.
+The recommended git tool is: NONE
+using credential ghkdtlwns987
+Unable to auto-install JDK until the license is accepted.
+ > /usr/bin/git rev-parse --resolve-git-dir /var/jenkins_home/workspace/jenkins test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/ghkdtlwns987/jenkins_test.git # timeout=10
+Fetching upstream changes from https://github.com/ghkdtlwns987/jenkins_test.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials jenkins test
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/ghkdtlwns987/jenkins_test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Unable to auto-install JDK until the license is accepted.
+Checking out Revision 8ac81d2b53610a9d59fcc87491b48fef235a8cb5 (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f 8ac81d2b53610a9d59fcc87491b48fef235a8cb5 # timeout=10
+Commit message: "Update build.gradle"
+ > /usr/bin/git rev-list --no-walk 8ac81d2b53610a9d59fcc87491b48fef235a8cb5 # timeout=10
+[Gradle] - Launching build.
+Unable to auto-install JDK until the license is accepted.
+[jenkins test] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/gradle_7.6/bin/gradle bootJar
+
+ERROR: JAVA_HOME is set to an invalid directory: /var/jenkins_home/tools/hudson.model.JDK/openjdk-11-jdk
+
+Please set the JAVA_HOME variable in your environment to match the
+location of your Java installation.
+
+Build step 'Invoke Gradle script' changed build result to FAILURE
+Build step 'Invoke Gradle script' marked build as failure
+Finished: FAILURE
