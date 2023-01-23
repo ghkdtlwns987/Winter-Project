@@ -13,7 +13,7 @@ $TTL    86400
 	MX	10	mail.ghkdtlwns987.com.
 
 ;Arecords
-sw              IN      A       192.168.0.11
-em		IN	A	192.168.0.60
-www             IN      A       192.168.0.10
-mail 		IN	A	192.168.0.70
+sw              IN      A       192.168.0.12
+sw		IN	A	129.168.0.13
+www             IN      A       192.168.0.12
+www		IN	A	192.168.0.13

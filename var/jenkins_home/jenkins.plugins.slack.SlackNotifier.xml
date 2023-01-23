@@ -1,0 +1,11 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<jenkins.plugins.slack.SlackNotifier_-DescriptorImpl plugin="slack@631.v40deea_40323b">
+  <baseUrl></baseUrl>
+  <teamDomain>winterproject-l6s4326</teamDomain>
+  <tokenCredentialId>winterproject-l6s4326</tokenCredentialId>
+  <botUser>false</botUser>
+  <sendAsText>false</sendAsText>
+  <iconEmoji></iconEmoji>
+  <username></username>
+  <room>jenkins_test_channel</room>
+</jenkins.plugins.slack.SlackNotifier_-DescriptorImpl>

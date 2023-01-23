@@ -15,7 +15,7 @@ RUN echo "deb [arch=$(dpkg --print-architecture) \
 RUN apt-get update && apt-get install -y docker-ce-cli
 
 RUN mkdir -p /root/.ssh/id_rsa
-RUN chmod -R 700 /root/.ssh
+RUN chmod -R 744 /root/.ssh
 
 USER jenkins
 RUN jenkins-plugin-cli --plugins "blueocean:1.25.2 docker-workflow:1.27"

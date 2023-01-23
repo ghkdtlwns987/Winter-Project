@@ -4,7 +4,7 @@
   <description>test</description>
   <keepDependencies>false</keepDependencies>
   <properties>
-    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.36.0">
+    <com.coravy.hudson.plugins.github.GithubProjectProperty plugin="github@1.36.1">
       <projectUrl>https://github.com/ghkdtlwns987/jenkins_test.git/</projectUrl>
       <displayName></displayName>
     </com.coravy.hudson.plugins.github.GithubProjectProperty>
@@ -49,21 +49,41 @@ build</tasks>
       <projectProperties></projectProperties>
       <passAllAsProjectProperties>false</passAllAsProjectProperties>
     </hudson.plugins.gradle.Gradle>
-    <hudson.plugins.gradle.Gradle plugin="gradle@2.2">
-      <switches></switches>
-      <tasks></tasks>
-      <rootBuildScriptDir></rootBuildScriptDir>
-      <buildFile></buildFile>
-      <gradleName>gradle 7.6</gradleName>
-      <useWrapper>false</useWrapper>
-      <makeExecutable>false</makeExecutable>
-      <useWorkspaceAsHome>false</useWorkspaceAsHome>
-      <wrapperLocation></wrapperLocation>
-      <passAllAsSystemProperties>false</passAllAsSystemProperties>
-      <projectProperties></projectProperties>
-      <passAllAsProjectProperties>false</passAllAsProjectProperties>
-    </hudson.plugins.gradle.Gradle>
   </builders>
-  <publishers/>
+  <publishers>
+    <jenkins.plugins.slack.SlackNotifier plugin="slack@631.v40deea_40323b">
+      <baseUrl></baseUrl>
+      <teamDomain></teamDomain>
+      <authToken></authToken>
+      <tokenCredentialId></tokenCredentialId>
+      <botUser>false</botUser>
+      <room></room>
+      <sendAsText>false</sendAsText>
+      <iconEmoji></iconEmoji>
+      <username></username>
+      <startNotification>true</startNotification>
+      <notifySuccess>true</notifySuccess>
+      <notifyAborted>true</notifyAborted>
+      <notifyNotBuilt>true</notifyNotBuilt>
+      <notifyUnstable>true</notifyUnstable>
+      <notifyRegression>true</notifyRegression>
+      <notifyFailure>false</notifyFailure>
+      <notifyEveryFailure>true</notifyEveryFailure>
+      <notifyBackToNormal>true</notifyBackToNormal>
+      <notifyRepeatedFailure>false</notifyRepeatedFailure>
+      <includeTestSummary>false</includeTestSummary>
+      <includeFailedTests>false</includeFailedTests>
+      <uploadFiles>false</uploadFiles>
+      <artifactIncludes></artifactIncludes>
+      <commitInfoChoice>NONE</commitInfoChoice>
+      <includeCustomMessage>false</includeCustomMessage>
+      <customMessage></customMessage>
+      <customMessageSuccess></customMessageSuccess>
+      <customMessageAborted></customMessageAborted>
+      <customMessageNotBuilt></customMessageNotBuilt>
+      <customMessageUnstable></customMessageUnstable>
+      <customMessageFailure></customMessageFailure>
+    </jenkins.plugins.slack.SlackNotifier>
+  </publishers>
   <buildWrappers/>
 </project>

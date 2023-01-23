@@ -1,0 +1,17 @@
+<?xml version='1.1' encoding='UTF-8'?>
+<fingerprint>
+  <timestamp>2023-01-19 06:30:55.973 UTC</timestamp>
+  <md5sum>45478512cc01dd3c11e72d7cc2ead06e</md5sum>
+  <fileName>Credential id=ghkdtlwns987 name=ghkdtlwns987/****** (ghkdtlwns987@git)</fileName>
+  <usages>
+    <entry>
+      <string>jenkins test</string>
+      <ranges>26-27</ranges>
+    </entry>
+    <entry>
+      <string>Jenkins_Test</string>
+      <ranges>1-23</ranges>
+    </entry>
+  </usages>
+  <facets/>
+</fingerprint>
