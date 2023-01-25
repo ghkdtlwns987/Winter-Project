@@ -1,7 +1,7 @@
-package com.LinkT.MH.Mapper;
+package com.LinkT.MH.Mapper.user;
 
-import com.LinkT.MH.entity.JoinVO;
-import com.LinkT.MH.entity.UserVO;
+import com.LinkT.MH.entity.user.JoinVO;
+import com.LinkT.MH.entity.user.UserVO;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper
@@ -10,5 +10,9 @@ public interface userMapper {
     public void Join(JoinVO vo);
     public void Update(UserVO vo);
     public UserVO LoadUser(String id);
+
+    public void DeleteUser(String id);
+
+    public int overlappedID(UserVO vo);
 }
 

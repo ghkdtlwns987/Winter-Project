@@ -1,4 +1,4 @@
-package com.LinkT.MH.entity;
+package com.LinkT.MH.entity.user;
 import lombok.*;
 
 /*
@@ -9,8 +9,9 @@ import lombok.*;
 */
 @Getter
 @Setter
-public class UserVO {
+public class JoinVO {
     private String id;
     private String pw;
+    private String pw_check;
     private String name;
 }

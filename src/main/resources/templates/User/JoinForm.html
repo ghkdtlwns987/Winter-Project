@@ -20,6 +20,8 @@
     <link rel="stylesheet" href="assets/css/owl.css">
     <link rel="stylesheet" href="assets/css/animate.css">
     <link rel="stylesheet"href="https://unpkg.com/swiper@7/swiper-bundle.min.css"/>
+    <script src="http://code.jquery.com/jquery-latest.js"></script>
+
     <!--
 
     TemplateMo 579 Cyborg Gaming
@@ -28,9 +30,46 @@
 
     -->
 </head>
-
+<script>
+    function usernameCheck() {
+        const username = $("#id").val();
+        const pw = $("pw")
+        if (username == "") {
+            alert("아이디를 입력해주세요!. 필수항목입니다.");
+            $("#username").focus();
+            return false;
+        }
+        $.ajax({
+            type: "post",
+            url: "checkID.do",
+            data: {"id": username},     // 데이터를 전송하는 부분
+            dataType: "json",           // 데이터를 받는 부분
+            success: function (result) {
+                if (result == "0") {
+                    if (confirm("이 아이디는 사용 가능합니다. \n사용하시겠습니까?")) {
+                        $("#id").attr("readonly", true);
+                        $("#id").attr("disabled", true);
+                        $("#id").css("display", "none");
+                        $("#id").attr("disabled", false);
+                        $("#id").css("display", "inline-block");
+                    }
+                    return false;
+                } else if (result == "1") {
+                    alert("이미 사용중인 아이디입니다.");
+                    $("#username").focus();
+                } else {
+                    console.log(result);
+                    alert("success이지만 result 값이 undefined 잘못됨");
+                }
+            },
+            error: function (request, status,error) {
+                alert("ajax 실행 실패");
+                alert("code:" + request.status + "\n" + "error :" + error);
+            }
+        });
+    }
+</script>
 <body>
-
 <!-- ***** Preloader Start ***** -->
 <div id="js-preloader" class="js-preloader">
     <div class="preloader-inner">
@@ -51,7 +90,7 @@
             <div class="col-12">
                 <nav class="main-nav">
                     <!-- ***** Logo Start ***** -->
-                    <a href="/" class="logo">
+                    <a href="/static" class="logo">
                         <img src="assets/images/logo.png" alt="">
                     </a>
                     <!-- ***** Logo End ***** -->
@@ -87,7 +126,8 @@
                                             <hr>
                                             <div class="form-group">
                                                 <label style="color:white">ID</label><br>
-                                                <input type="text" class="form-control" name="id" required="required">
+                                                <input type="text" class="form-control" name="id" id="id" minlength="8" maxlength="30" required="required">
+                                                <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/>
                                             </div>
                                             <div class="form-group">
                                                 <label style="color:white">Name</label><br>
@@ -95,11 +135,11 @@
                                             </div>
                                             <div class="form-group">
                                                 <label style="color:white">Password</label><br>
-                                                <input type="password" class="form-control" name="pw" required="required">
+                                                <input type="password" class="form-control" name="pw" id="pw" minlength="8" maxlength="30" required="required">
                                             </div>
                                             <div class="form-group">
                                                 <label style="color:white">Confirm Password</label><br>
-                                                <input type="password" class="form-control" name="pw_check" required="required">
+                                                <input type="password" class="form-control" name="pw_check" id="pw_check" minlength="8" maxlength="30" required="required">
                                                 <br>
                                             </div>
                                             <div class="d-grid gap-2" style="padding: 5px 1px 20px 3px;">
@@ -108,8 +148,18 @@
                                             <div class="main-border-button" style="text-align: center">
                                                 <a href="LoginForm.do">로그인하기</a>
                                                 <a href="FindForm.do">비밀번호 찾기</a>
-                                                <a href="/">홈으로 돌아가기</a>
+                                                <a href="/static">홈으로 돌아가기</a>
                                             </div>
+                                            <input type="button" id="loginBtn" value="login">
+                                            <script>
+                                                $("#loginBtn").click(function(){
+                                                    location.href="https://accounts.google.com/o/oauth2/auth?client_id="+
+                                                        "764278301910-un6brkgolehod31ht4h0feigi0q5kvpl.apps.googleusercontent.com"+
+                                                        "&redirect_uri="+
+                                                        "http://localhost/redirect.html" +
+                                                        "&response_type=code&scope=https://www.googleapis.com/auth/userinfo.email&approval_prompt=force&access_type=offline";
+                                                });
+                                            </script>
                                         </form>
                                     </ul>
                                 </div>
@@ -145,5 +195,4 @@
 
 
 </body>
-
 </html>

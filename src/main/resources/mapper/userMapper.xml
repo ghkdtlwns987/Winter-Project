@@ -1,22 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.LinkT.MH.Mapper.userMapper">
+<mapper namespace="com.LinkT.MH.Mapper.user.userMapper">
 
-    <select id="LoginCheck" resultType="com.LinkT.MH.entity.UserVO" parameterType="com.LinkT.MH.entity.UserVO">
+    <!-- 로그인 확인 -->
+    <select id="LoginCheck" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="com.LinkT.MH.entity.user.UserVO">
         SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
     </select>
 
-    <insert id="Join" parameterType="com.LinkT.MH.entity.JoinVO">
+    <!-- 회원가입 -->
+    <insert id="Join" parameterType="com.LinkT.MH.entity.user.JoinVO">
         INSERT INTO link_users value(#{id}, #{pw}, #{name})
     </insert>
 
-    <update id="Update" parameterType="com.LinkT.MH.entity.UserVO">
+    <!-- 회원정보 수정 -->
+    <update id="Update" parameterType="com.LinkT.MH.entity.user.UserVO">
         UPDATE link_users
         SET pw=#{pw}, name=#{name}
         WHERE id=#{id}
     </update>
 
-    <select id="LoadUser" resultType="com.LinkT.MH.entity.UserVO" parameterType="com.LinkT.MH.entity.UserVO">
+    <!-- 회원정보 수정할 때 유저 불러오는 쿼리 -->
+    <select id="LoadUser" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="com.LinkT.MH.entity.user.UserVO">
         SELECT * FROM link_users WHERE id=#{id}
+    </select>
+
+    <!-- 회원 삭제 -->
+    <select id="DeleteUser" parameterType="string">
+        DELETE FROM link_users WHERE id=#{id}
+    </select>
+
+    <!-- 비동기 처리에서 중복된 아이디 확인 -->
+    <select id="overlappedID" resultType="int" parameterType="com.LinkT.MH.entity.user.UserVO">
+        SELECT COUNT(*) FROM link_users WHERE id=#{id}
     </select>
 </mapper>

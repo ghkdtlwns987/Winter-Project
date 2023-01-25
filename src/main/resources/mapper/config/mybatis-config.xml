@@ -8,7 +8,7 @@
         <setting name="jdbcTypeForNull" value="NULL" />
     </settings>
     <typeAliases>
-        <typeAlias type="com.LinkT.MH.entity.UserVO" alias="userVO"/>
+        <typeAlias type="com.LinkT.MH.entity.user.UserVO" alias="userVO"/>
     </typeAliases>
 
 </configuration>

@@ -1,12 +1,11 @@
-package com.LinkT.MH.Controller;
+package com.LinkT.MH.Controller.user;
 
-import com.LinkT.MH.Mapper.userMapper;
-import com.LinkT.MH.entity.JoinVO;
-import com.LinkT.MH.entity.UserVO;
+import com.LinkT.MH.Mapper.user.userMapper;
+import com.LinkT.MH.entity.user.JoinVO;
+import com.LinkT.MH.entity.user.UserVO;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpServletRequest;
@@ -27,27 +26,51 @@ public class userController {
     public String home() {
         return "home";
     }
-
+    
+    // 회원가입 메소드
     @RequestMapping("/Join.do")
     public String Join(JoinVO vo, Model model) {
         if (!vo.getPw().equals(vo.getPw_check())) {
             message = "비밀번호가 서로 다릅니다.";
             model.addAttribute("message", message);
             model.addAttribute("linkUrl", "JoinForm.do");
-            return "JoinF";
+            return "User/JoinF";
         }
         mapper.Join(vo);
         message = "회원가입에 성공했습니다.";
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "LoginForm.do");
-        return "JoinS";
+        return "User/JoinS";
     }
 
+    // 회원 정보 삭제
+    @RequestMapping("Delete.do")
+    public String Delete(Model model, HttpSession session){
+        String id = (String)session.getAttribute("id");
+        mapper.DeleteUser(id);
+        session.invalidate();
+        message = "회원 정보가 삭제되었습니다.";
+        model.addAttribute("message", message);
+        model.addAttribute("linkUrl", "/");
+        return "User/DeleteS";
+    }
+
+    // 비동기 처리에서 아이디 검증하는 메소드
+    @ResponseBody // 값 변환을 위해 꼭 필요함
+    @RequestMapping("checkID.do") // 아이디 중복확인을 위한 값으로 따로 매핑
+    public int checkID(UserVO vo) throws Exception{
+        int result = mapper.overlappedID(vo); // 중복확인한 값을 int로 받음
+        return result;
+    }
+    
+    // 로그아웃 메소드
     @RequestMapping("Logout.do")
     public String Logout(HttpSession session){
         session.invalidate();
         return "home";
     }
+    
+    // 로그인 메소드
     @RequestMapping("Login.do")
     public String Login(UserVO vo, Model model, HttpServletRequest request) {
         UserVO user = mapper.LoginCheck(vo);
@@ -59,7 +82,7 @@ public class userController {
                 session.setAttribute("id", null);
                 session.setAttribute("name", null);
             }
-            return "LoginF";
+            return "User/LoginF";
         }
         String id = user.getId();
         String name = user.getName();
@@ -70,39 +93,45 @@ public class userController {
         System.out.println(message);
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "/");
-        return "LoginS";
+        return "User/LoginS";
     }
 
+    // 회원정보 수정 메소드
     @RequestMapping("/Update.do")
     public String Update(UserVO vo, Model model){
         message = "회원정보가 수정되었습니다.";
         mapper.Update(vo);
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "/");
-        return "UpdateS";
+        return "User/UpdateS";
     }
 
+    // 로그인 되지 않았다면 Not Login으로 이동
     @RequestMapping("/NotLogin.do")
     public String NotLogin() {
         return "NotLogin";
     }
 
+    // Profile 페이지 이동
     @RequestMapping("/Profile.do")
     public String Profile() {
 
-        return "Profile";
+        return "User/Profile";
     }
 
+    // 로그인 Form
     @RequestMapping("/LoginForm.do")
     public String LoginForm() {
-        return "LoginForm";
+        return "User/LoginForm";
     }
 
+    // 회원가입 Form
     @RequestMapping("/JoinForm.do")
     public String JoinForm() {
-        return "JoinForm";
+        return "User/JoinForm";
     }
 
+    // 회원정보 수정 Form
     @RequestMapping("/UpdateForm.do")
     public String UpdateForm(Model model, HttpServletRequest request){
         HttpSession session = request.getSession();
@@ -112,6 +141,6 @@ public class userController {
         System.out.println(vo);
         System.out.println("Model VO");
         model.addAttribute("userVO", vo);
-        return "UpdateForm";
+        return "User/UpdateForm";
     }
 }
