@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>게시물 자세히</title>
+</head>
+<body>
+<table>
+  <tr>
+    <td>인덱스</td>
+    <td th:text="${vo.getBoard_idx()}"></td>
+  </tr>
+  <tr>
+    <td>제목</td>
+    <td th:text="${vo.getBoard_title()}"></td>
+  </tr>
+  <tr>
+    <td>내용</td>
+    <td th:text="${vo.getBoard_content()}"></td>
+  </tr>
+  <tr>
+    <td>아이디</td>
+    <td th:text="${vo.getId()}"></td>
+  </tr>
+</table>
+<!-- <button th:href="@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}">수정</button> -->
+<button th:onclick="|location.href='@{boardList.do}'|">목록</button>
+<button th:onclick="|location.href='@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}'|">수정</button>
+<button th:onclick="|location.href='@{boardDelete.do(board_idx=${vo.getBoard_idx()})}'|">삭제</button>
+<!-- 자신이 쓴 글일때 수정, 삭제 버튼 나오는 거 구현 -->
+</body>
+</html>

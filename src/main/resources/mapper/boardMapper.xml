@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.LinkT.MH.Mapper.board.boardMapper">
+    <!-- 게시물 등록  -->
+    <insert id="boardWrite" parameterType="com.LinkT.MH.entity.board.boardVO">
+        INSERT INTO board
+            value(board_idx, #{board_title}, #{board_content}, #{id})
+    </insert>
+    <!-- 게시물 목록 -->
+    <select id="boardList" resultType="com.LinkT.MH.entity.board.boardVO">
+        SELECT *
+        FROM board
+    </select>
+    <!-- 게시물 디테일 -->
+    <select id="boardDetail" parameterType="int" resultType="com.LinkT.MH.entity.board.boardVO">
+        SELECT *
+        FROM board
+        WHERE board_idx = #{board_idx}
+    </select>
+    <!-- 게시물 수정 -->
+    <update id="boardUpdate" parameterType="com.LinkT.MH.entity.board.boardVO">
+        UPDATE board
+        SET board_title=#{board_title}, board_content=#{board_content}
+        WHERE board_idx = #{board_idx}
+    </update>
+    <!-- 게시물 삭제 -->
+    <delete id="boardDelete" parameterType="int">
+        DELETE FROM board
+        WHERE board_idx=#{board_idx}
+    </delete>
+</mapper>
