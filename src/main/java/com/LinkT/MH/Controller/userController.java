@@ -1,4 +1,4 @@
-package com.LinkT.MH.Controller.user;
+package com.LinkT.MH.Controller;
 
 import com.LinkT.MH.Mapper.user.userMapper;
 import com.LinkT.MH.entity.user.JoinVO;
@@ -34,13 +34,13 @@ public class userController {
             message = "비밀번호가 서로 다릅니다.";
             model.addAttribute("message", message);
             model.addAttribute("linkUrl", "JoinForm.do");
-            return "User/JoinF";
+            return "user/JoinF";
         }
         mapper.Join(vo);
         message = "회원가입에 성공했습니다.";
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "LoginForm.do");
-        return "User/JoinS";
+        return "user/JoinS";
     }
 
     // 회원 정보 삭제
@@ -52,7 +52,7 @@ public class userController {
         message = "회원 정보가 삭제되었습니다.";
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "/");
-        return "User/DeleteS";
+        return "user/DeleteS";
     }
 
     // 비동기 처리에서 아이디 검증하는 메소드
@@ -82,7 +82,7 @@ public class userController {
                 session.setAttribute("id", null);
                 session.setAttribute("name", null);
             }
-            return "User/LoginF";
+            return "user/LoginF";
         }
         String id = user.getId();
         String name = user.getName();
@@ -93,7 +93,7 @@ public class userController {
         System.out.println(message);
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "/");
-        return "User/LoginS";
+        return "user/LoginS";
     }
 
     // 회원정보 수정 메소드
@@ -103,7 +103,7 @@ public class userController {
         mapper.Update(vo);
         model.addAttribute("message", message);
         model.addAttribute("linkUrl", "/");
-        return "User/UpdateS";
+        return "user/UpdateS";
     }
 
     // 로그인 되지 않았다면 Not Login으로 이동
@@ -116,19 +116,19 @@ public class userController {
     @RequestMapping("/Profile.do")
     public String Profile() {
 
-        return "User/Profile";
+        return "user/Profile";
     }
 
     // 로그인 Form
     @RequestMapping("/LoginForm.do")
     public String LoginForm() {
-        return "User/LoginForm";
+        return "user/LoginForm";
     }
 
     // 회원가입 Form
     @RequestMapping("/JoinForm.do")
     public String JoinForm() {
-        return "User/JoinForm";
+        return "user/JoinForm";
     }
 
     // 회원정보 수정 Form
@@ -141,6 +141,6 @@ public class userController {
         System.out.println(vo);
         System.out.println("Model VO");
         model.addAttribute("userVO", vo);
-        return "User/UpdateForm";
+        return "user/UpdateForm";
     }
 }
