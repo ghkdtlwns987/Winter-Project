@@ -14,5 +14,7 @@ public interface userMapper {
     public void DeleteUser(String id);
 
     public int overlappedID(UserVO vo);
+
+    public void updatePW(JoinVO vo);
 }
 

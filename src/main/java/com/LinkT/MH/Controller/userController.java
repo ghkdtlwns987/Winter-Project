@@ -26,7 +26,17 @@ public class userController {
     public String home() {
         return "home";
     }
-    
+
+
+    @RequestMapping("FindPasswordForm.do")
+    public String FindPasswordForm(){
+        return "user/UpdatePW";
+    }
+    @RequestMapping("/UpdatePW.do")
+    public String FindPassword(JoinVO vo){
+        mapper.updatePW(vo);
+        return "home";
+    }
     // 회원가입 메소드
     @RequestMapping("/Join.do")
     public String Join(JoinVO vo, Model model) {

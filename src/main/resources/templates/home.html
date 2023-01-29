@@ -7,11 +7,20 @@
 <body>
   <h1> Welcome To MH Server</h1>
   <h2>URL Link</h2>
+  <h1> 초기 비밀번호 : eeee, eeeeeeee</h1>
+  <!-- 로그인하지 않았다면 회원가입, 로그인, 비밀번호 출력창을 띄움 !-->
+  <th:block th:if="${session.id == null}">
       <li><a href="JoinForm.do">회원가입하기</a></li>
       <li><a href="LoginForm.do">로그인하기</a></li>
-      <li><a href="FindForm.do">비밀번호 찾기</a></li>
-      <li><a href="/">홈으로 돌아가기</a></li>
-  <h2>Board Link</h2>
-  <li><a href="boardList.do">게시판 보기</a></li>
+      <li><a href="FindPasswordForm.do">비밀번호 찾기</a></li>
+  </th:block>
+
+  <!-- 로그인 상태라면 로그아웃, 게시판 보기가 출력됨 !-->
+  <th:block th:if="${session.id != null}">
+      <h2>Board Link</h2>
+      <li><a href="boardList.do">게시판 보기</a></li>
+      <li><a href="UpdateForm.do">회원 정보 수정</a></li>
+      <li><a href="Logout.do">로그아웃</a></li>
+  </th:block>
 </body>
 </html>

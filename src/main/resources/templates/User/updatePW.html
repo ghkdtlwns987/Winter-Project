@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<title> 비밀번호 찾기 </title>
 <head>
-
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -25,12 +25,14 @@
         border-radius: 4px;
     }
 </style>
+<!-- 비밀번호 확인 로직 -->
+<!-- 아이디 중복 확인 로직 -->
 <script>
     function usernameCheck() {
         const username = $("#id").val();
         const pw = $("pw")
         if (username == "") {
-            alert("아이디를 입력해주세요!. 필수항목입니다.");
+            alert("비밀번호를 찾기 위해선 ID를 입력해야합니다!!");
             $("#username").focus();
             return false;
         }
@@ -41,17 +43,17 @@
             dataType: "json",           // 데이터를 받는 부분
             success: function (result) {
                 if (result == "0") {
-                    if (confirm("이 아이디는 사용 가능합니다. \n사용하시겠습니까?")) {
-                        $("#id").attr("readonly", true);
-                        $("#id").attr("disabled", true);
-                        $("#id").css("display", "none");
-                        $("#id").attr("disabled", false);
-                        $("#id").css("display", "inline-block");
+                    if (confirm("해당 아이디는 존재하지 않습니다.")) {
+                        $("#username").focus();
                     }
                     return false;
                 } else if (result == "1") {
-                    alert("이미 사용중인 아이디입니다.");
-                    $("#username").focus();
+                    alert("해당 아이디를 변경합니다.");
+                    $("#id").attr("readonly", true);
+                    $("#id").attr("disabled", true);
+                    $("#id").css("display", "none");
+                    $("#id").attr("disabled", false);
+                    $("#id").css("display", "inline-block");
                 } else {
                     console.log(result);
                     alert("success이지만 result 값이 undefined 잘못됨");
@@ -71,8 +73,8 @@
             <div class="row">
                 <div class="col-lg-8 align-self-center">
                     <ul>
-                        <form action="Join.do" method="post">
-                            <h2>회원가입</h2>
+                        <form action="Update.do" method="post">
+                            <h2>비밀번호 찾기</h2>
                             <hr>
                             <div class = "form-group">
                                 <label style="color:black">ID</label><br>
@@ -80,27 +82,35 @@
                                 <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/>
                             </div>
                             <div class="form-group">
-                                <label style="color:black">Name</label><br>
-                                <input type="text" class="form-control" name="name" required="required">
-                            </div>
-                            <div class="form-group">
-                                <label style="color:black">Password</label><br>
+                                <label style="color:black">변경할 Password</label><br>
                                 <input type="password" class="form-control" name="pw" id="pw" minlength="8" maxlength="30" required="required">
                             </div>
                             <div class="form-group">
-                                <label style="color:black">Confirm Password</label><br>
+                                <label style="color:black">변경할 Password 확인</label><br>
                                 <input type="password" class="form-control" name="pw_check" id="pw_check" minlength="8" maxlength="30" required="required">
                                 <br>
                             </div>
+                            <script>
+                                $(function(){
+                                    //비밀번호 확인
+                                    $('#pw_check').blur(function(){
+                                        if($('#pw').val() != $('#pw_check').val()){
+                                            if($('#pw_check').val()!=''){
+                                                alert("비밀번호가 일치하지 않습니다.");
+                                                $('#pw_check').val('');
+                                                $('#pw_check').focus();
+                                            }
+                                        }
+                                    })
+                                });
+                            </script>
+
                             <div class="d-grid gap-2" style="padding: 5px 1px 20px 3px;">
                                 <button class="btn btn-primary" type="submit">제출하기</button>
                             </div>
                             <div class="d-flex justify-content-center">
                                 <a href="LoginForm.do">
                                     <button type="button" class="btn btn-info">로그인하기</button>
-                                </a>
-                                <a href="FindPasswordForm.do">
-                                    <button type="button" class="btn btn-secondary">비밀번호 찾기</button>
                                 </a>
                                 <a href="/">
                                     <button type="button" class="btn btn-success">홈으로 돌아가기</button>

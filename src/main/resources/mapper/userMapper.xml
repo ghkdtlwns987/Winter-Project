@@ -7,6 +7,13 @@
         SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
     </select>
 
+    <!-- 비밀번호 수정 -->
+    <update id="updatePW" parameterType="com.LinkT.MH.entity.user.UserVO">
+        UPDATE link_users
+        SET pw=#{pw}
+        WHERE id=#{id}
+    </update>
+
     <!-- 회원가입 -->
     <insert id="Join" parameterType="com.LinkT.MH.entity.user.JoinVO">
         INSERT INTO link_users value(#{id}, #{pw}, #{name})

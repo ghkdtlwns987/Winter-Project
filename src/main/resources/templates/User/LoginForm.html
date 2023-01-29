@@ -1,14 +1,27 @@
 <!DOCTYPE html>
-<html lang="en">
-
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-
-    <!-- Bootstrap core CSS -->
-    <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>
 </head>
 
+<style>
+    .form-control {
+        display: block;
+        width: 50%;
+        height: 34px;
+        padding: 6px 12px;
+        font-size: 14px;
+        line-height: 1.42857143;
+        color: #555;
+        background-color: #fff;
+        background-image: none;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+    }
+</style>
 <body>
     <div class="col-lg-8 align-self-center">
         <ul>
@@ -26,10 +39,16 @@
                 <div class="d-grid gap-2" style="padding: 25px 1px 20px 3px;">
                     <button class="btn btn-primary" type="submit">제출하기</button>
                 </div>
-                <div class="main-border-button" style="text-align: center">
-                    <a href="FindForm.do">비밀번호 찾기</a>
-                    <a href="JoinForm.do">회원가입하기</a>
-                    <a href="/">홈으로 돌아가기</a>
+                <div class="d-flex justify-content-center">
+                    <a href="JoinForm.do">
+                        <button type="button" class="btn btn-info">회원가입 하기</button>
+                    </a>
+                    <a href="FindPasswordForm.do">
+                        <button type="button" class="btn btn-secondary">비밀번호 찾기</button>
+                    </a>
+                    <a href="/">
+                        <button type="button" class="btn btn-success">홈으로 돌아가기</button>
+                    </a>
                 </div>
             </form>
         </ul>
