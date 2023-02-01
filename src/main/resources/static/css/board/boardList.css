@@ -1,0 +1,11 @@
+.top {
+    margin-top: 70px;
+    margin-bottom: 10px;
+}
+button {
+    display: inline-block;
+    float: right;
+}
+.table-header{
+    background-color: antiquewhite;
+}
