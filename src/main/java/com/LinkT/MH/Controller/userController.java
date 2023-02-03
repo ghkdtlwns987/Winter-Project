@@ -1,8 +1,9 @@
 package com.LinkT.MH.Controller;
 
 import com.LinkT.MH.Mapper.user.userMapper;
-import com.LinkT.MH.entity.user.JoinVO;
+import com.LinkT.MH.Service.UserService;
 import com.LinkT.MH.entity.user.UserVO;
+import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -15,9 +16,10 @@ import javax.servlet.http.HttpSession;
 // 근데 객체를 생성해주는게 Annotation에서 RequiredArgsConstructor이다.
 
 @Controller
+@RequiredArgsConstructor
 public class userController {
-    @Inject
     private userMapper mapper;
+    private final UserService userService;
     private HttpSession session;
 
     private String message="";
@@ -33,24 +35,22 @@ public class userController {
         return "user/UpdatePW";
     }
     @RequestMapping("/UpdatePW.do")
-    public String FindPassword(JoinVO vo){
+    public String FindPassword(UserVO vo){
         mapper.updatePW(vo);
         return "home";
     }
     // 회원가입 메소드
-    @RequestMapping("/Join.do")
-    public String Join(JoinVO vo, Model model) {
-        if (!vo.getPw().equals(vo.getPw_check())) {
-            message = "비밀번호가 서로 다릅니다.";
-            model.addAttribute("message", message);
-            model.addAttribute("linkUrl", "JoinForm.do");
-            return "user/JoinF";
-        }
-        mapper.Join(vo);
-        message = "회원가입에 성공했습니다.";
-        model.addAttribute("message", message);
-        model.addAttribute("linkUrl", "LoginForm.do");
-        return "user/JoinS";
+    @GetMapping("/Join.do")
+    public String Join(UserVO vo) {
+
+        System.out.println("=============================");
+        System.out.println(vo.getId());
+        System.out.println(vo.getPw());
+        System.out.println(vo.getAuth());
+        System.out.println(vo.getName());
+
+        userService.JoinUser(vo);
+        return "redirect:/LoginForm.do";
     }
 
     // 회원 정보 삭제
@@ -70,6 +70,9 @@ public class userController {
     @RequestMapping("checkID.do") // 아이디 중복확인을 위한 값으로 따로 매핑
     public int checkID(UserVO vo) throws Exception{
         int result = mapper.overlappedID(vo); // 중복확인한 값을 int로 받음
+        System.out.println("TEST");
+        System.out.println(result);
+
         return result;
     }
     
@@ -81,7 +84,7 @@ public class userController {
     }
     
     // 로그인 메소드
-    @RequestMapping("Login.do")
+    @GetMapping("Login.do")
     public String Login(UserVO vo, Model model, HttpServletRequest request) {
         UserVO user = mapper.LoginCheck(vo);
         if (user == null) {

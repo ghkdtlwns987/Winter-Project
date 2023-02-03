@@ -15,8 +15,10 @@
     </update>
 
     <!-- 회원가입 -->
-    <insert id="Join" parameterType="com.LinkT.MH.entity.user.JoinVO">
-        INSERT INTO link_users value(#{id}, #{pw}, #{name})
+    <insert id="Join" parameterType="com.LinkT.MH.entity.user.UserVO">
+        INSERT INTO link_users
+            (id, pw, name, auth, APPEND_DATE, UPDATE_DATE)
+        VALUES(#{id},#{pw},#{name},#{auth},#{appendDate},#{updateDate});
     </insert>
 
     <!-- 회원정보 수정 -->
@@ -38,6 +40,6 @@
 
     <!-- 비동기 처리에서 중복된 아이디 확인 -->
     <select id="overlappedID" resultType="int" parameterType="com.LinkT.MH.entity.user.UserVO">
-        SELECT COUNT(*) FROM link_users WHERE id=#{id}
+        SELECT COUNT(*) FROM TB_USER WHERE id=#{id}
     </select>
 </mapper>

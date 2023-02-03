@@ -8,23 +8,8 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>
+    <link rel="stylesheet" href="/css/user/userstyle.css">
 </head>
-
-<style>
-    .form-control {
-        display: block;
-        width: 50%;
-        height: 34px;
-        padding: 6px 12px;
-        font-size: 14px;
-        line-height: 1.42857143;
-        color: #555;
-        background-color: #fff;
-        background-image: none;
-        border: 1px solid #ccc;
-        border-radius: 4px;
-    }
-</style>
 <script>
     function usernameCheck() {
         const username = $("#id").val();
@@ -63,6 +48,17 @@
             }
         });
     }
+
+
+
+    $('#pw_check').blur(function() {
+        if ($('#pw').val() != $(this).val()) {
+            $('#pw_check').text('비밀번호가 일치하지 않습니다.');
+            $('#pw_check').css('color', 'red');
+        } else {
+            $('#pw_check').text('');
+        }
+    });
 </script>
 <body>
 <div class="row">
@@ -71,13 +67,13 @@
             <div class="row">
                 <div class="col-lg-8 align-self-center">
                     <ul>
-                        <form action="Join.do" method="post">
+                        <form action="Join.do" method="get">
                             <h2>회원가입</h2>
                             <hr>
                             <div class = "form-group">
                                 <label style="color:black">ID</label><br>
                                 <input type="text" class="form-control" name="id" id="id" minlength="8" maxlength="30" required="required">
-                                <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/>
+                                <!--<input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/> !-->
                             </div>
                             <div class="form-group">
                                 <label style="color:black">Name</label><br>
@@ -92,6 +88,20 @@
                                 <input type="password" class="form-control" name="pw_check" id="pw_check" minlength="8" maxlength="30" required="required">
                                 <br>
                             </div>
+                            <script>
+                                $(function(){
+                                    //비밀번호 확인
+                                    $('#pw_check').blur(function(){
+                                        if($('#pw').val() != $('#pw_check').val()){
+                                            if($('#pw_check').val()!=''){
+                                                alert("비밀번호가 일치하지 않습니다.");
+                                                $('#pw_check').val('');
+                                                $('#pw_check').focus();
+                                            }
+                                        }
+                                    })
+                                });
+                            </script>
                             <div class="d-grid gap-2" style="padding: 5px 1px 20px 3px;">
                                 <button class="btn btn-primary" type="submit">제출하기</button>
                             </div>
