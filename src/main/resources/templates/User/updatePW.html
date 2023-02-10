@@ -37,7 +37,7 @@
             return false;
         }
         $.ajax({
-            type: "post",
+            type: "get",
             url: "checkID.do",
             data: {"id": username},     // 데이터를 전송하는 부분
             dataType: "json",           // 데이터를 받는 부분
@@ -73,7 +73,7 @@
             <div class="row">
                 <div class="col-lg-8 align-self-center">
                     <ul>
-                        <form action="Update.do" method="post">
+                        <form action="UpdatePW.do" method="get">
                             <h2>비밀번호 찾기</h2>
                             <hr>
                             <div class = "form-group">

@@ -20,7 +20,7 @@
             return false;
         }
         $.ajax({
-            type: "post",
+            type: "get",
             url: "checkID.do",
             data: {"id": username},     // 데이터를 전송하는 부분
             dataType: "json",           // 데이터를 받는 부분
@@ -73,7 +73,7 @@
                             <div class = "form-group">
                                 <label style="color:black">ID</label><br>
                                 <input type="text" class="form-control" name="id" id="id" minlength="8" maxlength="30" required="required">
-                                <!--<input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/> !-->
+                                <input class="btn btn-outline-primary btn-sm idCheck mx-1" type="button" id="usernameOverlay" onclick="usernameCheck()" value="중복 체크"/>
                             </div>
                             <div class="form-group">
                                 <label style="color:black">Name</label><br>

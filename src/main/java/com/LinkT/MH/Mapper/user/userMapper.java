@@ -10,7 +10,9 @@ public interface userMapper {
     public void Update(UserVO vo);
     public UserVO LoadUser(String id);
     public void DeleteUser(String id);
-    public int overlappedID(UserVO vo);
+    public int overlappedID(String id);
     public void updatePW(UserVO vo);
+    public UserVO getUserAccount(String id);
+    public UserVO Login(UserVO vo);
 }
 

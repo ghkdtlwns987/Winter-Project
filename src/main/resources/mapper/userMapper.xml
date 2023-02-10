@@ -3,14 +3,23 @@
 <mapper namespace="com.LinkT.MH.Mapper.user.userMapper">
 
     <!-- 로그인 확인 -->
-    <select id="LoginCheck" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="com.LinkT.MH.entity.user.UserVO">
+    <select id="LoginCheck" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="string">
+        SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
+    </select>
+
+    <select id="getUserAccount" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="string">
+        SELECT * FROM link_users WHERE id=#{id}
+    </select>
+
+    <!-- 로그인 확인(Not Secure) -->
+    <select id="Login" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="com.LinkT.MH.entity.user.UserVO">
         SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
     </select>
 
     <!-- 비밀번호 수정 -->
     <update id="updatePW" parameterType="com.LinkT.MH.entity.user.UserVO">
         UPDATE link_users
-        SET pw=#{pw}
+        SET pw=#{pw}, auth=#{auth}, APPEND_DATE=#{appendDate}, UPDATE_DATE=#{updateDate}
         WHERE id=#{id}
     </update>
 
@@ -39,7 +48,7 @@
     </select>
 
     <!-- 비동기 처리에서 중복된 아이디 확인 -->
-    <select id="overlappedID" resultType="int" parameterType="com.LinkT.MH.entity.user.UserVO">
-        SELECT COUNT(*) FROM TB_USER WHERE id=#{id}
+    <select id="overlappedID" resultType="int" parameterType="string">
+        SELECT COUNT(*) FROM link_users WHERE id=#{id}
     </select>
 </mapper>
