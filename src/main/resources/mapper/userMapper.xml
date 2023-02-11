@@ -2,18 +2,8 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.LinkT.MH.Mapper.user.userMapper">
 
-    <!-- 로그인 확인 -->
-    <select id="LoginCheck" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="string">
-        SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
-    </select>
-
-    <select id="getUserAccount" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="string">
+    <select id="getUserAccount" resultType="com.LinkT.MH.entity.user.UserVO">
         SELECT * FROM link_users WHERE id=#{id}
-    </select>
-
-    <!-- 로그인 확인(Not Secure) -->
-    <select id="Login" resultType="com.LinkT.MH.entity.user.UserVO" parameterType="com.LinkT.MH.entity.user.UserVO">
-        SELECT * FROM link_users WHERE id=#{id} AND pw=#{pw}
     </select>
 
     <!-- 비밀번호 수정 -->

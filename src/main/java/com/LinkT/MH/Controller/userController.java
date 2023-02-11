@@ -33,8 +33,9 @@ public class userController {
 
     @GetMapping("FindPasswordForm.do")
     public String FindPasswordForm(){
-        return "user/UpdatePW";
+        return "User/UpdatePW";
     }
+
     @GetMapping("/UpdatePW.do")
     public String FindPassword(UserVO vo){
         userService.updatePW(vo);
@@ -46,6 +47,15 @@ public class userController {
         //userService.JoinUser(vo);
         userService.Join(vo);
         return "redirect:/LoginForm.do";
+    }
+
+    @GetMapping("/JoinForm.do")
+    public String JoinForm(){
+        return "User/JoinForm";
+    }
+    @GetMapping("/LoginForm.do")
+    public String LoginForm(){
+        return "User/LoginForm";
     }
 
     // 회원 정보 삭제
@@ -61,79 +71,22 @@ public class userController {
     @ResponseBody
     @GetMapping("checkID.do") // 아이디 중복확인을 위한 값으로 따로 매핑
     public int checkID(String id) throws Exception{
-        System.out.println(id);
         int result = userService.overlappedID(id); // 중복확인한 값을 int로 받음
         return result;
-    }
-    
-    // 로그아웃 메소드
-    @RequestMapping("Logout.do")
-    public String Logout(HttpSession session){
-        session.invalidate();
-        return "home";
-    }
-    
-    // 로그인 메소드
-    @GetMapping("Login.do")
-    //public String Login(Authentication authentication, Model model, HttpServletRequest request) {
-    public String Login(UserVO vo, Model model, HttpServletRequest request){
-        //UserVO user = userService.LoginCheck(vo);
-        //UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
-        UserVO userVO = userService.Login(vo);
-        if (userVO == null) {
-            message = "id나 pw를 찾을 수 없습니다.";
-            model.addAttribute("message", message);
-            model.addAttribute("linkUrl", "LoginForm.do");
-            if(session != null) {
-                session.setAttribute("id", null);
-                session.setAttribute("name", null);
-            }
-            return "user/LoginF";
-        }
-        message = userVO.getId() + "님 로그인을 환영합니다.";
-        model.addAttribute("message", message);
-        model.addAttribute("linkUrl", "/");
-        System.out.println("DEBUG");
-        String id = userVO.getId();
-        System.out.println(id);
-        String name = userVO.getName();
-        System.out.println(name);
-        HttpSession session = request.getSession();
-        session.setAttribute("id", id);
-        session.setAttribute("name", name);
-        return "user/LoginS";
     }
 
     // 회원정보 수정 메소드
     @RequestMapping("/Update.do")
     public String Update(UserVO vo, Model model){
         userService.Update(vo);
-        return "user/UpdateS";
-    }
-
-    // 로그인 되지 않았다면 Not Login으로 이동
-    @RequestMapping("/NotLogin.do")
-    public String NotLogin() {
-        return "NotLogin";
+        return "User/UpdateS";
     }
 
     // Profile 페이지 이동
     @RequestMapping("/Profile.do")
     public String Profile() {
 
-        return "user/Profile";
-    }
-
-    // 로그인 Form
-    @RequestMapping("/LoginForm.do")
-    public String LoginForm() {
-        return "user/LoginForm";
-    }
-
-    // 회원가입 Form
-    @RequestMapping("/JoinForm.do")
-    public String JoinForm() {
-        return "user/JoinForm";
+        return "User/Profile";
     }
 
     // 회원정보 수정 Form
@@ -143,6 +96,14 @@ public class userController {
         String id = (String)session.getAttribute("id");
         UserVO vo = userService.LoadUser(id);
         model.addAttribute("userVO", vo);
-        return "user/UpdateForm";
+        return "User/UpdateForm";
+    }
+
+    @GetMapping("/User_Access")
+    public String userAccess(Model model, Authentication authentication) {
+        //Authentication 객체를 통해 유저 정보를 가져올 수 있다.
+        UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
+        model.addAttribute("info", userVO.getUserName()+ "님 안녕하세요");      //유저 아이디
+        return "User/user_access";
     }
 }

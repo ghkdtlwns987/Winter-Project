@@ -24,7 +24,6 @@ public class boardController {
     public String boardWritePage(HttpSession session, Model model) {
 
         String id = (String) session.getAttribute("id");
-        System.out.println("id" + id);
         model.addAttribute("id", id);
 
         return "board/boardWrite";
@@ -33,10 +32,7 @@ public class boardController {
     /* 글 등록 버튼 눌렀을때 실행되는 메소드 */
     @RequestMapping("/boardWriteForm.do")
     public String boardWriteForm(boardVO vo){
-
-        System.out.println("vo는 " + vo);
         mapper.boardWrite(vo);
-
         return "redirect:/boardList.do";
     }
 

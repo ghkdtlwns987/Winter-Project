@@ -12,6 +12,8 @@ CREATE TABLE `TB_USER` (
 )AUTO_INCREMENT=1 DEFAULT CHARSET=utf8;
 
 SELECT * FROM link_users;
+DELETE FROM link_users where id='cccccccc';
+
 
 DROP TABLE IF EXISTS link_data CASCADE;
 DROP TABLE IF EXISTS link_mid CASCADE;

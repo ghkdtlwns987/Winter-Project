@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -10,7 +11,7 @@
 <body>
     <div class="col-lg-8 align-self-center">
         <ul>
-            <form action="Login.do" method="get">
+            <form th:action="@{/login_proc}" method="post">
                 <h2>로그인</h2>
                 <hr>
                 <div class="form-group">

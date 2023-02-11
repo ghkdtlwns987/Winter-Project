@@ -14,13 +14,5 @@
       <li><a href="LoginForm.do">로그인하기</a></li>
       <li><a href="FindPasswordForm.do">비밀번호 찾기</a></li>
   </th:block>
-
-  <!-- 로그인 상태라면 로그아웃, 게시판 보기가 출력됨 !-->
-  <th:block th:if="${session.id != null}">
-      <h2>Board Link</h2>
-      <li><a href="boardList.do">게시판 보기</a></li>
-      <li><a href="UpdateForm.do">회원 정보 수정</a></li>
-      <li><a href="Logout.do">로그아웃</a></li>
-  </th:block>
 </body>
 </html>
