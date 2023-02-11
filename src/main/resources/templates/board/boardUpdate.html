@@ -8,7 +8,7 @@
 <form action="boardUpdateForm.do" method="post">
   제목 : <input type="text" name="board_title" th:value="${vo.getBoard_title()}">
   내용 : <input type="text" name="board_content" th:value="${vo.getBoard_content()}">
-  아이디 : <input type="text" name="id" th:value="${vo.getId()}" readonly>
+  <input type="hidden" name="id" th:value="${vo.getId()}">
   <input hidden="hidden" type="text" name="board_idx" th:value="${vo.getBoard_idx()}">
   <button type="submit">수정</button>
 </form>

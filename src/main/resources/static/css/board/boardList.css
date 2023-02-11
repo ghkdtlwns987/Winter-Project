@@ -5,6 +5,7 @@
 button {
     display: inline-block;
     float: right;
+    BORDER: NONE;
 }
 .table-header{
     background-color: antiquewhite;

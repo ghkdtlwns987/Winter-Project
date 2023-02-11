@@ -2,31 +2,36 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/board/boardDetail.css">
   <title>게시물 자세히</title>
 </head>
 <body>
-<table>
-  <tr>
-    <td>인덱스</td>
-    <td th:text="${vo.getBoard_idx()}"></td>
-  </tr>
-  <tr>
-    <td>제목</td>
-    <td th:text="${vo.getBoard_title()}"></td>
-  </tr>
-  <tr>
-    <td>내용</td>
-    <td th:text="${vo.getBoard_content()}"></td>
-  </tr>
-  <tr>
-    <td>아이디</td>
-    <td th:text="${vo.getId()}"></td>
-  </tr>
-</table>
-<!-- <button th:href="@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}">수정</button> -->
-<button th:onclick="|location.href='@{boardList.do}'|">목록</button>
-<button th:onclick="|location.href='@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}'|">수정</button>
-<button th:onclick="|location.href='@{boardDelete.do(board_idx=${vo.getBoard_idx()})}'|">삭제</button>
-<!-- 자신이 쓴 글일때 수정, 삭제 버튼 나오는 거 구현 -->
+
+  <div class="card-header">
+    <h1>게시글 상세보기</h1>
+  </div>
+
+  <div class="card">
+    <div class="btn-boardlist">
+      <button id="boardlist" th:onclick="|location.href='@{boardList.do}'|">목록</button>
+    </div>
+
+    <div class="card-body">
+      <div class="body-padding">
+        <h2><strong th:text="${vo.getBoard_title()}"></strong></h2>
+        <div th:text="|현재 로그인 한 아이디 : ${id}|"></div>
+        <div class="card-info">
+          <p th:text="|작성자 : ${vo.getId()}|"></p>
+          <p th:text="|내용 : ${vo.getBoard_content()}|"></p>
+        </div>
+        <div class="card-btn" th:if="${id == vo.getId()}">
+          <button class="btn" th:onclick="|location.href='@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}'|">수정</button>
+          <button class="btn" th:onclick="|location.href='@{boardDelete.do(board_idx=${vo.getBoard_idx()})}'|">삭제</button>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
 </body>
 </html>

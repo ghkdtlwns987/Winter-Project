@@ -10,6 +10,7 @@
     <select id="boardList" resultType="com.LinkT.MH.entity.board.boardVO">
         SELECT *
         FROM board
+        ORDER BY board_idx DESC
     </select>
     <!-- 게시물 디테일 -->
     <select id="boardDetail" parameterType="int" resultType="com.LinkT.MH.entity.board.boardVO">

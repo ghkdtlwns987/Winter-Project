@@ -8,6 +8,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.inject.Inject;
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -16,10 +17,16 @@ public class boardController {
 
     @Inject
     private boardMapper mapper;
+    private HttpSession session;
 
     /* 글 작성 페이지로 이동 */
     @RequestMapping("/boardWritePage.do")
-    public String boardWritePage() {
+    public String boardWritePage(HttpSession session, Model model) {
+
+        String id = (String) session.getAttribute("id");
+        System.out.println("id" + id);
+        model.addAttribute("id", id);
+
         return "board/boardWrite";
     }
 
@@ -27,7 +34,9 @@ public class boardController {
     @RequestMapping("/boardWriteForm.do")
     public String boardWriteForm(boardVO vo){
 
+        System.out.println("vo는 " + vo);
         mapper.boardWrite(vo);
+
         return "redirect:/boardList.do";
     }
 
@@ -43,7 +52,10 @@ public class boardController {
 
     /* 게시판 상세보기 */
     @RequestMapping("/boardDetail.do")
-    public String boardDetail(int board_idx, Model model){
+    public String boardDetail(int board_idx, Model model, HttpSession session){
+
+        String id = (String) session.getAttribute("id");
+        model.addAttribute("id", id);
 
         // 사용자가 게시판 리스트에서 게시물 하나를 클릭하면 해당 게시물의 인덱스가 컨트롤러로 넘어옴
         // 받아온 idx값을 이용해서 그 idx의 게시물 정보(행)을 불러오기
