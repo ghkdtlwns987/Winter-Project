@@ -2,13 +2,16 @@ package com.LinkT.MH.Controller;
 
 import com.LinkT.MH.Mapper.board.boardMapper;
 import com.LinkT.MH.entity.board.boardVO;
+import com.LinkT.MH.entity.user.UserVO;
 import lombok.RequiredArgsConstructor;
+import org.springframework.security.core.Authentication;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.inject.Inject;
 import javax.servlet.http.HttpSession;
+import java.security.Principal;
 import java.util.List;
 
 @Controller
@@ -19,12 +22,17 @@ public class boardController {
     private boardMapper mapper;
     private HttpSession session;
 
+    /* 현재 로그인한 아이디 받아오기 */
+    public void loginId(){
+
+    }
+
     /* 글 작성 페이지로 이동 */
     @RequestMapping("/boardWritePage.do")
-    public String boardWritePage(HttpSession session, Model model) {
+    public String boardWritePage(Model model, Authentication authentication) {
 
-        String id = (String) session.getAttribute("id");
-        model.addAttribute("id", id);
+        UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
+        model.addAttribute("id", userVO.getId());      //유저 아이디
 
         return "board/boardWrite";
     }
@@ -48,10 +56,10 @@ public class boardController {
 
     /* 게시판 상세보기 */
     @RequestMapping("/boardDetail.do")
-    public String boardDetail(int board_idx, Model model, HttpSession session){
+    public String boardDetail(int board_idx, Model model, Authentication authentication){
 
-        String id = (String) session.getAttribute("id");
-        model.addAttribute("id", id);
+        UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
+        model.addAttribute("id", userVO.getId());      //유저 아이디
 
         // 사용자가 게시판 리스트에서 게시물 하나를 클릭하면 해당 게시물의 인덱스가 컨트롤러로 넘어옴
         // 받아온 idx값을 이용해서 그 idx의 게시물 정보(행)을 불러오기
