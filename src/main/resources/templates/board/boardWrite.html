@@ -2,37 +2,45 @@
 <html lang="ko" xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="UTF-8">
+  <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>
   <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
-  <script type="text/javascript" th:src="@{/smarteditor/js/HuskyEZCreator.js}" charset="utf-8"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/user/userstyle.css">
+
   <title>게시물 작성</title>
 </head>
+
+<style>
+  .ck-content {						/* ckeditor 높이 */
+    height: 300px;
+  }
+</style>
+
 <body>
 <h2>글쓰기</h2>
 <form action="boardWriteForm.do" method="post">
   <table>
     <tbody>
     <tr>
-      <td>제목</td>
-      <td><input type="text" name="board_title" required></td>
+        <input type="text" class="form-control" name="board_title" required="required" placeholder="제목을 입력해주세요">
     </tr>
     <tr>
-      <td>내용</td>
-      <td><textarea name="board_content" id="contentInput" required></textarea></td>
-      <script>
-        var oEditors = [];
-        nhn.husky.EZCreator.createInIFrame({
-          oAppRef: oEditors,
-          elPlaceHolder: "contentInput",  //textarea ID 입력
-          sSkinURI: "/smarteditor/SmartEditor2Skin.html",  //martEditor2Skin.html 경로 입력
-          fCreator: "createSEditor2",
-        });
-      </script>
+      <textarea name="board_content" id="contentInput" placeholder="내용을 입력해주세요"></textarea>
     </tr>
     <input type="hidden" name="id" th:value="${id}">
     </tbody>
   </table>
-  <button type="submit">등록</button>
+  <div class="d-grid gap-2" style="padding: 25px 1px 20px 3px;">
+    <button class="btn btn-primary" type="submit">등록하기</button>
+  </div>
+  <script>
+    /* 책 소개 */
+    ClassicEditor
+            .create(document.querySelector('#contentInput'))
+            .catch(error=>{
+              console.error(error);
+            });
+  </script>
 </form>
 </body>
-
 </html>
