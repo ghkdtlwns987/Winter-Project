@@ -1,6 +1,7 @@
 package com.LinkT.MH.Controller;
 
 import com.LinkT.MH.Mapper.board.boardMapper;
+import com.LinkT.MH.Service.boardService;
 import com.LinkT.MH.entity.board.boardVO;
 import com.LinkT.MH.entity.user.UserVO;
 import lombok.RequiredArgsConstructor;
@@ -20,12 +21,21 @@ public class boardController {
 
     @Inject
     private boardMapper mapper;
+    private boardService boardService;
     private HttpSession session;
+
 
     /* 현재 로그인한 아이디 받아오기 */
     public void loginId(){
 
     }
+
+    /* 댓글 불러오기 */
+
+    /* 댓글 작성 */
+
+    /* 댓글 삭제 */
+
 
     /* 글 작성 페이지로 이동 */
     @RequestMapping("/boardWritePage.do")

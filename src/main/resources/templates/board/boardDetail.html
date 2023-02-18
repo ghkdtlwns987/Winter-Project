@@ -11,11 +11,13 @@
     <h1>게시글 상세보기</h1>
   </div>
 
+  <!-- 목록 버튼 -->
   <div class="card">
     <div class="btn-boardlist">
       <button id="boardlist" th:onclick="|location.href='@{boardList.do}'|">목록</button>
     </div>
 
+    <!-- 내용 칸 -->
     <div class="card-body">
       <div class="body-padding">
         <h2><strong th:text="${vo.getBoard_title()}"></strong></h2>
@@ -30,6 +32,15 @@
         </div>
       </div>
 
+    </div>
+
+    <!-- 댓글 -->
+    <div class="comment">
+      <form>
+        <input name="
+
+">
+      </form>
     </div>
 
   </div>
