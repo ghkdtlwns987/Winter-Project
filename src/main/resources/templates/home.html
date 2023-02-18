@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>MH Server</title>
+</head>
+<body>
+  <h1> Welcome To MH Server</h1>
+  <h2>URL Link</h2>
+  <h1> 초기 비밀번호 : eeee, eeeeeeee</h1>
+  <!-- 로그인하지 않았다면 회원가입, 로그인, 비밀번호 출력창을 띄움 !-->
+  <th:block th:if="${session.id == null}">
+      <li><a href="JoinForm.do">회원가입하기</a></li>
+      <li><a href="LoginForm.do">로그인하기</a></li>
+      <li><a href="FindPasswordForm.do">비밀번호 찾기</a></li>
+  </th:block>
+</body>
+</html>

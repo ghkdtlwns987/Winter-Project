@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script></head>
+    <link rel="stylesheet" href="/css/user/userstyle.css">
+</head>
+<body>
+    <div class="col-lg-8 align-self-center">
+        <ul>
+            <form th:action="@{/login_proc}" method="post">
+                <h2>로그인</h2>
+                <hr>
+                <div class="form-group">
+                    <label style="color:black">ID</label><br>
+                    <input type="text" class="form-control" name="id" required="required">
+                </div>
+                <div class="form-group">
+                    <label style="color:black">Password</label><br>
+                    <input type="password" class="form-control" name="pw" required="required">
+                </div>
+                <div class="d-grid gap-2" style="padding: 25px 1px 20px 3px;">
+                    <button class="btn btn-primary" type="submit">제출하기</button>
+                </div>
+                <div class="d-flex justify-content-center">
+                    <a href="JoinForm.do">
+                        <button type="button" class="btn btn-info">회원가입 하기</button>
+                    </a>
+                    <a href="FindPasswordForm.do">
+                        <button type="button" class="btn btn-secondary">비밀번호 찾기</button>
+                    </a>
+                    <a href="/">
+                        <button type="button" class="btn btn-success">홈으로 돌아가기</button>
+                    </a>
+                </div>
+            </form>
+        </ul>
+    </div>
+    </div>
+</div>
+</body>
+
+</html>

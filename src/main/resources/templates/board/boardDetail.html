@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" type="text/css" href="/css/board/boardDetail.css">
+  <title>게시물 자세히</title>
+</head>
+<body>
+
+  <div class="card-header">
+    <h1>게시글 상세보기</h1>
+  </div>
+
+  <!-- 목록 버튼 -->
+  <div class="card">
+    <div class="btn-boardlist">
+      <button id="boardlist" th:onclick="|location.href='@{boardList.do}'|">목록</button>
+    </div>
+
+    <!-- 내용 칸 -->
+    <div class="card-body">
+      <div class="body-padding">
+        <h2><strong th:text="${vo.getBoard_title()}"></strong></h2>
+        <div th:text="|현재 로그인 한 아이디 : ${id}|"></div>
+        <div class="card-info">
+          <p th:text="|작성자 : ${vo.getId()}|"></p>
+          <p th:text="|내용 : ${vo.getBoard_content()}|"></p>
+        </div>
+        <div class="card-btn" th:if="${id == vo.getId()}">
+          <button class="btn" th:onclick="|location.href='@{boardUpdate.do(board_idx=${vo.getBoard_idx()})}'|">수정</button>
+          <button class="btn" th:onclick="|location.href='@{boardDelete.do(board_idx=${vo.getBoard_idx()})}'|">삭제</button>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- 댓글 -->
+    <div class="comment">
+      <form>
+        <input name="
+
+">
+      </form>
+    </div>
+
+  </div>
+</body>
+</html>
