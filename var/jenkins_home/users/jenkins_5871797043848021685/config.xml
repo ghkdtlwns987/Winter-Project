@@ -3,7 +3,13 @@
   <version>10</version>
   <id>jenkins</id>
   <fullName>jenkins</fullName>
+  <description></description>
   <properties>
+    <jenkins.security.ApiTokenProperty>
+      <tokenStore>
+        <tokenList/>
+      </tokenStore>
+    </jenkins.security.ApiTokenProperty>
     <io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty plugin="blueocean-autofavorite@1.2.5">
       <autofavoriteEnabled>true</autofavoriteEnabled>
     </io.jenkins.blueocean.autofavorite.user.FavoritingUserProperty>
@@ -17,13 +23,32 @@
         </entry>
       </domainCredentialsMap>
     </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@438.v02c7f0a_12fa_4">
+      <emailAddress>ghkdtlwns987@naver.com</emailAddress>
+    </hudson.tasks.Mailer_-UserProperty>
     <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.93">
       <triggers/>
     </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
     <hudson.plugins.favorite.user.FavoriteUserProperty plugin="favorite@2.4.1">
-      <data class="concurrent-hash-map"/>
+      <data class="concurrent-hash-map">
+        <entry>
+          <string>ghkdtlwns987_Jenkins_Test</string>
+          <boolean>true</boolean>
+        </entry>
+        <entry>
+          <string>CdHfa</string>
+          <boolean>false</boolean>
+        </entry>
+      </data>
     </hudson.plugins.favorite.user.FavoriteUserProperty>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1673761636197</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
     <hudson.model.MyViewsProperty>
+      <primaryViewName></primaryViewName>
       <views>
         <hudson.model.AllView>
           <owner class="hudson.model.MyViewsProperty" reference="../../.."/>
@@ -40,29 +65,24 @@
     <hudson.model.PaneStatusProperties>
       <collapsed/>
     </hudson.model.PaneStatusProperties>
+    <hudson.security.HudsonPrivateSecurityRealm_-Details>
+      <passwordHash>#jbcrypt:$2a$10$qheTU.9oejst0A.4gboAj.vIA0qYSm4PbF0ovC8MmE7w4T0tBQwSu</passwordHash>
+    </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <org.jenkinsci.main.modules.cli.auth.ssh.UserPropertyImpl plugin="sshd@3.236.ved5e1b_cb_50b_2">
+      <authorizedKeys></authorizedKeys>
+    </org.jenkinsci.main.modules.cli.auth.ssh.UserPropertyImpl>
     <jenkins.security.seed.UserSeedProperty>
-      <seed>6b491b454769a9df</seed>
+      <seed>09b7044b4237fc6c</seed>
     </jenkins.security.seed.UserSeedProperty>
     <hudson.search.UserSearchProperty>
       <insensitiveSearch>true</insensitiveSearch>
     </hudson.search.UserSearchProperty>
-    <hudson.model.TimeZoneProperty/>
-    <hudson.security.HudsonPrivateSecurityRealm_-Details>
-      <passwordHash>#jbcrypt:$2a$10$/B1UV96B04BpQZGN.KEvKOxr6VsUwYiiczURJz0QWzwE9v4I2eiqu</passwordHash>
-    </hudson.security.HudsonPrivateSecurityRealm_-Details>
-    <hudson.tasks.Mailer_-UserProperty plugin="mailer@438.v02c7f0a_12fa_4">
-      <emailAddress>ghkdtlwns987@naver.com</emailAddress>
-    </hudson.tasks.Mailer_-UserProperty>
-    <jenkins.security.ApiTokenProperty>
-      <tokenStore>
-        <tokenList/>
-      </tokenStore>
-    </jenkins.security.ApiTokenProperty>
-    <jenkins.security.LastGrantedAuthoritiesProperty>
-      <roles>
-        <string>authenticated</string>
-      </roles>
-      <timestamp>1673761636197</timestamp>
-    </jenkins.security.LastGrantedAuthoritiesProperty>
+    <jenkins.plugins.slack.user.SlackUserProperty plugin="slack@631.v40deea_40323b">
+      <userId></userId>
+      <disableNotifications>false</disableNotifications>
+    </jenkins.plugins.slack.user.SlackUserProperty>
+    <hudson.model.TimeZoneProperty>
+      <timeZoneName></timeZoneName>
+    </hudson.model.TimeZoneProperty>
   </properties>
 </user>

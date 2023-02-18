@@ -1,0 +1,77 @@
+Started by user [8mha:////4NHeuUs+l/Vd7mUlclg7tdAy3FzNQydAmXsml/h3fok/AAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL9rNS87My8YgDGtiJjwgAAAA==[0mjenkins
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Jenkins_Test
+The recommended git tool is: NONE
+using credential ghkdtlwns987
+ > /usr/bin/git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Jenkins_Test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/ghkdtlwns987/jenkins_test.git # timeout=10
+Fetching upstream changes from https://github.com/ghkdtlwns987/jenkins_test.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials ghkdtlwns987@git
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/ghkdtlwns987/jenkins_test.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision c23c618d03adaee3ac14402e055d8797eaa48d0c (refs/remotes/origin/master)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f c23c618d03adaee3ac14402e055d8797eaa48d0c # timeout=10
+Commit message: "Update application.properties"
+ > /usr/bin/git rev-list --no-walk c23c618d03adaee3ac14402e055d8797eaa48d0c # timeout=10
+[Gradle] - Launching build.
+[Jenkins_Test] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/gradle_7.6/bin/gradle clean build
+Starting a Gradle Daemon (subsequent builds will be faster)
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :clean
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileJava
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processResources
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :classes
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :bootJarMainClassName
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :bootJar
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :jar
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :assemble
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileTestJava
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processTestResources NO-SOURCE
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :testClasses
+
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :test
+2023-01-25 00:20:50.694  INFO 6302 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2023-01-25 00:20:50.704  INFO 6302 --- [ionShutdownHook] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :check
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :build
+
+[8mha:////4G7lLNlWE/phiIfMb4t7V0tWE74xp5bbcbMrz99LMGRcAAAAYx+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUz5l5Yk5+em+uWXpNbNmqZ4mHPZIiYGhooiBimoruT8vOJ8oHJnCA1SyAABjCCFBQBI197DZQAAAA==[0mBUILD SUCCESSFUL in 8s
+8 actionable tasks: 8 executed
+Build step 'Invoke Gradle script' changed build result to SUCCESS
+SSH: Connecting from host [1395a6e448d2]
+SSH: Connecting with configuration [web1] ...
+SSH: Creating session: username [root], hostname [192.168.0.10], port [22]
+SSH: Connecting session ...
+SSH: Connected
+SSH: Opening SFTP channel ...
+SSH: SFTP channel open
+SSH: Connecting SFTP channel ...
+SSH: Connected
+SSH: cd [/home]
+SSH: OK
+SSH: Disconnecting configuration [web1] ...
+ERROR: Exception when publishing, exception message [Failed to remove prefix from file named [build/libs/MH-0.0.1-SNAPSHOT-plain.jar]. Prefix [Jenkins_Test/build/libs/] must be present in all file paths]
+Build step 'Send files or execute commands over SSH' changed build result to UNSTABLE
+SSH: Connecting from host [1395a6e448d2]
+SSH: Connecting with configuration [web2] ...
+SSH: Creating session: username [root], hostname [192.168.0.11], port [22]
+SSH: Connecting session ...
+SSH: Connected
+SSH: Creating session: username [root], hostname [127.0.0.1], port [40,321]
+SSH: Connecting session ...
+SSH: Connected
+SSH: Opening SFTP channel ...
+SSH: SFTP channel open
+SSH: Connecting SFTP channel ...
+SSH: Connected
+SSH: cd [/home]
+SSH: OK
+SSH: Disconnecting configuration [web2] ...
+ERROR: Exception when publishing, exception message [Failed to remove prefix from file named [build/libs/MH-0.0.1-SNAPSHOT.jar]. Prefix [Jenkins_Test/build/libs/] must be present in all file paths]
+[Slack Notifications] found #30 as previous completed, non-aborted build
+[Slack Notifications] will send OnRegressionNotification because build matches and user preferences allow it
+Finished: UNSTABLE

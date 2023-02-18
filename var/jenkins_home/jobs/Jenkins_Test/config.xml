@@ -9,12 +9,12 @@
     <userRemoteConfigs>
       <hudson.plugins.git.UserRemoteConfig>
         <url>https://github.com/ghkdtlwns987/jenkins_test.git</url>
-        <credentialsId>ghkdtlwns987</credentialsId>
+        <credentialsId>Jenknis_Token</credentialsId>
       </hudson.plugins.git.UserRemoteConfig>
     </userRemoteConfigs>
     <branches>
       <hudson.plugins.git.BranchSpec>
-        <name>*/master</name>
+        <name>*/ghkdtlwns987</name>
       </hudson.plugins.git.BranchSpec>
     </branches>
     <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
@@ -54,13 +54,13 @@
           <publishers>
             <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.24">
               <configName>web1</configName>
-              <verbose>false</verbose>
+              <verbose>true</verbose>
               <transfers>
                 <jenkins.plugins.publish__over__ssh.BapSshTransfer>
                   <remoteDirectory>/home/spring/deploy</remoteDirectory>
-                  <sourceFiles>Jenkins_Test/build/libs/*.jar</sourceFiles>
+                  <sourceFiles>build/libs/*.jar</sourceFiles>
                   <excludes></excludes>
-                  <removePrefix>Jenkins_Test/build/libs</removePrefix>
+                  <removePrefix>build/libs</removePrefix>
                   <remoteDirectorySDF>false</remoteDirectorySDF>
                   <flatten>false</flatten>
                   <cleanRemote>false</cleanRemote>
@@ -77,6 +77,51 @@
               </transfers>
               <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
               <usePromotionTimestamp>false</usePromotionTimestamp>
+              <label class="jenkins.plugins.publish_over_ssh.BapSshPublisherLabel">
+                <label>Web1 Sending...</label>
+              </label>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+          </publishers>
+          <continueOnError>false</continueOnError>
+          <failOnError>false</failOnError>
+          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+        </delegate>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
+    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.24">
+      <delegate>
+        <consolePrefix>SSH: </consolePrefix>
+        <delegate plugin="publish-over@0.22">
+          <publishers>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher plugin="publish-over-ssh@1.24">
+              <configName>web2</configName>
+              <verbose>true</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory>/home/spring/deploy</remoteDirectory>
+                  <sourceFiles>build/libs/*.jar</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix>build/libs</removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>cd /home/spring
+/bin/sh deploy.sh</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>false</usePty>
+                  <useAgentForwarding>false</useAgentForwarding>
+                  <useSftpForExec>false</useSftpForExec>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+              <label class="jenkins.plugins.publish_over_ssh.BapSshPublisherLabel">
+                <label>Web2 Sending...</label>
+              </label>
             </jenkins.plugins.publish__over__ssh.BapSshPublisher>
           </publishers>
           <continueOnError>false</continueOnError>

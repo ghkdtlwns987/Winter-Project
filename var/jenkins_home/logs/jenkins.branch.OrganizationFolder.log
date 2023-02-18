@@ -1,0 +1,4 @@
+[Thu Feb 16 06:51:06 KST 2023] Received com.github.kostyasha.github.integration.multibranch.hooks.GitHubBranchSCMHeadEvent UPDATED event from ghkdtlwns987/jenkins_test with timestamp Thu Feb 16 06:51:06 KST 2023
+[Thu Feb 16 06:51:06 KST 2023] Finished processing com.github.kostyasha.github.integration.multibranch.hooks.GitHubBranchSCMHeadEvent UPDATED event from ghkdtlwns987/jenkins_test with timestamp Thu Feb 16 06:51:06 KST 2023, processed in 0ms. Matched 0.
+[Thu Feb 16 06:51:11 KST 2023] Received Push event to branch master in repository ghkdtlwns987/jenkins_test UPDATED event from 140.82.115.117 ⇒ http://117.16.17.165:8080/github-webhook/ with timestamp Thu Feb 16 06:51:06 KST 2023
+[Thu Feb 16 06:51:11 KST 2023] Finished processing Push event to branch master in repository ghkdtlwns987/jenkins_test UPDATED event from 140.82.115.117 ⇒ http://117.16.17.165:8080/github-webhook/ with timestamp Thu Feb 16 06:51:06 KST 2023, processed in 0ms. Matched 0.

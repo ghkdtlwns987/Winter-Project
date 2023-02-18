@@ -1,5 +1,71 @@
 version: '3'
 services:
+    dvwa:
+      image: docker.io/vulnerables/web-dvwa
+      container_name: dvwa
+      ports:
+        - "80"
+        - "443"
+      networks:
+        mynet:
+          ipv4_address: 192.168.0.40 
+
+    ips:
+      image: docker.io/linton/docker-snort
+      command: snort -i eno1 -A unsock -l /var/log/snort/ -c /etc/snort/etc/snort.conf
+      volumes:
+        - ./ips/snort-logs:/var/log/snort
+        - ./ips/snort-rules/snort.rules:/etc/snort/rules/local.rules
+      restart: always
+      network_mode: "host"
+      cap_add:
+        - NET_ADMIN
+      privileged: true
+      container_name: ips
+
+    ids:
+      container_name: ids
+      image: owasp/modsecurity-crs:nginx
+      environment:
+        SERVERNAME: modsec3-nginx
+        BACKEND: http://192.168.0.40
+        PORT: "80"
+        MODSEC_RULE_ENGINE: "On"
+        PARANOIA: 4
+        TZ: "${TZ}"
+        ERRORLOG: "/var/log/error.log"
+        LOGLEVEL: "info"
+        ACCESSLOG: "/var/log/access.log"
+        MODSEC_AUDIT_LOG_FORMAT: Native
+        MODSEC_AUDIT_LOG_TYPE: Serial
+        MODSEC_AUDIT_LOG: "/var/log/modsec_audit.log"
+        MODSEC_RESP_BODY_ACCESS: "On"
+        MODSEC_RESP_BODY_MIMETYPE: "text/plain text/html text/xml application/json"
+        COMBINED_FILE_SIZES: "65535"
+        CRS_ENABLE_TEST_MARKER: 1
+      volumes:
+        - ./ids/v3-nginx/logsmodsec3-nginx:/var/log/nginx:rw
+        - ./ids/coreruleset-3.3.4/rules:/opt/owasp-crs/rules:ro
+        - ./ids/coreruleset-3.3.4/crs-setup.conf.example:/etc/modsecurity.d/owasp-crs/crs-setup.conf.example
+      command: ["nginx", "-g", "daemon off;"]
+      ports:
+        - "9000:80"
+        - "14444:4443"
+      networks:
+        mynet:
+          ipv4_address: 192.168.30.50
+      depends_on:
+        - dvwa
+ 
+    backend:
+      container_name: backend
+      image: docker.io/kennethreitz/httpbin
+      ports:
+        - "80"
+      networks:
+        mynet:
+          ipv4_address: 192.168.30.51
+
     jenkins:
       build: jenkins
       container_name: jenkins
@@ -21,7 +87,6 @@ services:
 
     dns:
       build: dns
-      restart: always
       ports:
         - "5300:53/udp"
         - "5300:53/tcp"

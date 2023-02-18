@@ -10,10 +10,10 @@ $TTL    86400
 ;
 @       IN      NS      ghkdtlwns987.com.
         IN      A       192.168.0.100
-	MX	10	mail.ghkdtlwns987.com.
 
 ;Arecords
 sw              IN      A       192.168.0.12
 sw		IN	A	129.168.0.13
 www             IN      A       192.168.0.12
 www		IN	A	192.168.0.13
+hack		IN	A	192.168.0.40

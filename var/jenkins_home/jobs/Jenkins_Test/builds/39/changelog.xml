@@ -1,0 +1,10 @@
+commit d45b42a01801cfc0b22cfba8d0dfc8595a8d7a9a
+tree 16c80b46b77e1c5b452a8f27738260b517377f60
+parent 19bfa1452d928ff34673f42543f3050a238370ad
+author ghkdtlwns987 <ghkdtlwns987@naver.com> 2023-01-26 00:14:40 +0900
+committer ghkdtlwns987 <ghkdtlwns987@naver.com> 2023-01-26 00:14:40 +0900
+
+    DB접속 수정
+
+
+:100644 100644 d15cda78626b2f38710f01bb0d260a1e0480fef2 e884b24a60ed552dff230f21f3222502928159e0 M	src/main/resources/application.properties

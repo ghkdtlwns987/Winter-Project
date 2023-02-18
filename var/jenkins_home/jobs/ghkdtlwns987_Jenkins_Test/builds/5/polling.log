@@ -1,0 +1,14 @@
+Started on Feb 16, 2023, 6:51:06 AM
+Started by event from 140.82.115.117 ⇒ http://117.16.17.165:8080/github-webhook/ on Thu Feb 16 06:51:06 KST 2023
+Using strategy: Default
+[poll] Last Built Revision: Revision c23c618d03adaee3ac14402e055d8797eaa48d0c (refs/remotes/origin/master)
+The recommended git tool is: NONE
+using credential Jenknis_Token
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials ghkdtlwns987@Jenkins_Test
+ > /usr/bin/git ls-remote -h -- https://github.com/ghkdtlwns987/jenkins_test.git # timeout=10
+Found 2 remote heads on https://github.com/ghkdtlwns987/jenkins_test.git
+[poll] Latest remote head revision on refs/heads/master is: 34c3c165523906a8b8cc101477afae7b8b708e01
+Done. Took 0.57 sec
+Changes found

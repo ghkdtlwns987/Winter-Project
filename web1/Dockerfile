@@ -10,7 +10,7 @@ RUN apt install apache2 -y
 RUN apt install openssh-server -y
 RUN apt install openjdk-11-jdk -y
 RUN mkdir -p /root/.ssh
-RUN mkdir -p /home/spring/deploy
+RUN mkdir -p /home/spring/deploy/logs
 RUN chmod -R 600 /root/.ssh
 
 ADD deploy.sh /home/spring/deploy.sh

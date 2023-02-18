@@ -1,0 +1,71 @@
+Started by user [8mha:////4NHeuUs+l/Vd7mUlclg7tdAy3FzNQydAmXsml/h3fok/AAAAmR+LCAAAAAAAAP9b85aBtbiIQTGjNKU4P08vOT+vOD8nVc83PyU1x6OyILUoJzMv2y+/JJUBAhiZGBgqihhk0NSjKDWzXb3RdlLBUSYGJk8GtpzUvPSSDB8G5tKinBIGIZ+sxLJE/ZzEvHT94JKizLx0a6BxUmjGOUNodHsLgAz2EgZe/dLi1CL9rNS87My8YgDGtiJjwgAAAA==[0mjenkins
+Running as SYSTEM
+Building in workspace /var/jenkins_home/workspace/Jenkins_Test
+The recommended git tool is: NONE
+using credential ghkdtlwns987
+ > /usr/bin/git rev-parse --resolve-git-dir /var/jenkins_home/workspace/Jenkins_Test/.git # timeout=10
+Fetching changes from the remote Git repository
+ > /usr/bin/git config remote.origin.url https://github.com/ghkdtlwns987/Winter-Project.git # timeout=10
+Fetching upstream changes from https://github.com/ghkdtlwns987/Winter-Project.git
+ > /usr/bin/git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+using GIT_ASKPASS to set credentials ghkdtlwns987@git
+ > /usr/bin/git fetch --tags --force --progress -- https://github.com/ghkdtlwns987/Winter-Project.git +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > /usr/bin/git rev-parse refs/remotes/origin/ghkdtlwns987^{commit} # timeout=10
+Checking out Revision 19bfa1452d928ff34673f42543f3050a238370ad (refs/remotes/origin/ghkdtlwns987)
+ > /usr/bin/git config core.sparsecheckout # timeout=10
+ > /usr/bin/git checkout -f 19bfa1452d928ff34673f42543f3050a238370ad # timeout=10
+Commit message: "Docker DB 접속"
+ > /usr/bin/git rev-list --no-walk 643d982278ec2206fd6c4fb168f959610483a46c # timeout=10
+[Gradle] - Launching build.
+[Jenkins_Test] $ /var/jenkins_home/tools/hudson.plugins.gradle.GradleInstallation/gradle_7.6/bin/gradle clean build
+Starting a Gradle Daemon (subsequent builds will be faster)
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :clean
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileJava
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processResources
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :classes
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :bootJarMainClassName
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :bootJar
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :jar
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :assemble
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :compileTestJava
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :processTestResources NO-SOURCE
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :testClasses
+
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :test
+
+MhApplicationTests > contextLoads() FAILED
+    java.lang.IllegalStateException at DefaultCacheAwareContextLoaderDelegate.java:98
+        Caused by: org.springframework.beans.factory.UnsatisfiedDependencyException at ConstructorResolver.java:800
+            Caused by: org.springframework.beans.factory.BeanCreationException at ConstructorResolver.java:658
+                Caused by: org.springframework.beans.BeanInstantiationException at SimpleInstantiationStrategy.java:185
+                    Caused by: org.springframework.beans.factory.BeanCreationException at ConstructorResolver.java:658
+                        Caused by: org.springframework.beans.BeanInstantiationException at SimpleInstantiationStrategy.java:185
+                            Caused by: org.springframework.jdbc.CannotGetJdbcConnectionException at DataSourceUtils.java:83
+                                Caused by: java.sql.SQLNonTransientConnectionException at SQLError.java:110
+                                    Caused by: com.mysql.cj.exceptions.CJException at NativeConstructorAccessorImpl.java:-2
+
+1 test completed, 1 failed
+
+[8mha:////4MzikwuMkOP/uP8/FgX666DA69iij+1coFPeAXTgpQsHAAAAYB+LCAAAAAAAAP9b85aBtbiIQSWjNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUyFJBZn++WXpCqzh62PfDo/h4mBoaKIQQqqJTk/rzgfqNYZQoMUMkAAI0hhAQASWqbMYgAAAA==[0m> Task :test FAILED
+
+FAILURE: Build failed with an exception.
+
+* What went wrong:
+Execution failed for task ':test'.
+> There were failing tests. See the report at: file:///var/jenkins_home/workspace/Jenkins_Test/build/reports/tests/test/index.html
+
+* Try:
+> Run with --stacktrace option to get the stack trace.
+> Run with --info or --debug option to get more log output.
+> Run with --scan to get full insights.
+
+* Get more help at https://help.gradle.org
+
+[8mha:////4G7lLNlWE/phiIfMb4t7V0tWE74xp5bbcbMrz99LMGRcAAAAYx+LCAAAAAAAAP9b85aBtbiIQT2jNKU4P0+vIKc0PTOvWC+9KDElJ1XPHUz5l5Yk5+em+uWXpNbNmqZ4mHPZIiYGhooiBimoruT8vOJ8oHJnCA1SyAABjCCFBQBI197DZQAAAA==[0mBUILD FAILED in 14s
+8 actionable tasks: 8 executed
+Build step 'Invoke Gradle script' changed build result to FAILURE
+Build step 'Invoke Gradle script' marked build as failure
+[Slack Notifications] found #37 as previous completed, non-aborted build
+[Slack Notifications] will send OnEveryFailureNotification because build matches and user preferences allow it
+Finished: FAILURE

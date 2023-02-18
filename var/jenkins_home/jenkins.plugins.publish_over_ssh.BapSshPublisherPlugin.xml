@@ -5,11 +5,11 @@
       <name>web1</name>
       <hostname>192.168.0.10</hostname>
       <username>root</username>
-      <secretPassword>{AQAAABAAAAAQaIcKIhHNxA4sLTJwafNkkN9vKrwFngoFsXwQ2WE6UHs=}</secretPassword>
-      <remoteRootDir></remoteRootDir>
+      <secretPassword>{AQAAABAAAAAQC7dq/S9J9bjtZAcOmlPi20uMOpGLAIrT1srM36LAPB0=}</secretPassword>
+      <remoteRootDir>/</remoteRootDir>
       <port>22</port>
       <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration">
-        <secretPassphrase>{AQAAABAAAAAQkt+0Ds1fdPhP2cQZZyV1iBUkiSbPP0NP5qEnU67CQ+o=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQ8t/Ib51S2LOxC1C2EWuSxAe+zRwFYPJZ+M6p2lxvZ3g=}</secretPassphrase>
         <key>-----BEGIN RSA PRIVATE KEY-----
 MIIJKAIBAAKCAgEApkYRQUWdmTnkc6+ZLb9drNy7n8sAx5zAR+2oEXDwPJTP5COO
 6wNNgo6DHVR/PCeUbwpxEb/eLvluMhlxCAyL0LA/vboSyuaMUDN698+8hh14KMAp
@@ -68,7 +68,7 @@ YELoxHvVnoTHynlG6TDqPDFPONFdqGQmuxvwPiF90NYX7G68qaCjua9y11w=
       <overrideKey>false</overrideKey>
       <disableExec>false</disableExec>
       <keyInfo>
-        <secretPassphrase>{AQAAABAAAAAQHBCjPpPNFRq2fJ+FtIxdD3hl6u+hJUgnjJ+vv5SFG4Q=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQYLKJscSfHar+/2GpKd10uPQLCgYYanfqRlrFLT3n2ok=}</secretPassphrase>
         <key></key>
         <keyPath></keyPath>
       </keyInfo>
@@ -83,15 +83,15 @@ YELoxHvVnoTHynlG6TDqPDFPONFdqGQmuxvwPiF90NYX7G68qaCjua9y11w=
       <name>web2</name>
       <hostname>192.168.0.11</hostname>
       <username>root</username>
-      <secretPassword>{AQAAABAAAAAQuPY/heq2Tvpm2HRtkKqX1ESH4lStNVHtqHOfZ5jTUjM=}</secretPassword>
-      <remoteRootDir></remoteRootDir>
+      <secretPassword>{AQAAABAAAAAQFc0hTKnOXmUH7ckr8NUm57poEi3T3v7QxV8P/l79A8g=}</secretPassword>
+      <remoteRootDir>/</remoteRootDir>
       <port>22</port>
       <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration" reference="../../jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
       <timeout>300000</timeout>
       <overrideKey>false</overrideKey>
       <disableExec>false</disableExec>
       <keyInfo>
-        <secretPassphrase>{AQAAABAAAAAQtuhPiB/DFy7pLXAG/3CwYRhXvhnpriXLGT/DlGgFTu8=}</secretPassphrase>
+        <secretPassphrase>{AQAAABAAAAAQm0v9T6WkUJ2Hlm27z4NhjO5xWgpscYQs4CS9VjOg6Sc=}</secretPassphrase>
         <key></key>
         <keyPath></keyPath>
       </keyInfo>
