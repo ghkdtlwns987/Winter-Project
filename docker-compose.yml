@@ -4,7 +4,7 @@ services:
       image: docker.io/vulnerables/web-dvwa
       container_name: dvwa
       ports:
-        - "80"
+        - "4380:80"
         - "443"
       networks:
         mynet:
@@ -23,13 +23,14 @@ services:
       privileged: true
       container_name: ips
 
-    ids:
-      container_name: ids
+    ids1:
+      container_name: ids1
       image: owasp/modsecurity-crs:nginx
+      user: root
       environment:
         SERVERNAME: modsec3-nginx
         BACKEND: http://192.168.0.40
-        PORT: "80"
+        PORT: "81"
         MODSEC_RULE_ENGINE: "On"
         PARANOIA: 4
         TZ: "${TZ}"
@@ -44,19 +45,64 @@ services:
         COMBINED_FILE_SIZES: "65535"
         CRS_ENABLE_TEST_MARKER: 1
       volumes:
-        - ./ids/v3-nginx/logsmodsec3-nginx:/var/log/nginx:rw
-        - ./ids/coreruleset-3.3.4/rules:/opt/owasp-crs/rules:ro
-        - ./ids/coreruleset-3.3.4/crs-setup.conf.example:/etc/modsecurity.d/owasp-crs/crs-setup.conf.example
+        - ./ids1/logs:/var/log/nginx:rw
+        - ./ids1/rules:/opt/owasp-crs/rules:ro
+        - ./ids1/crs-setup.conf.example:/etc/modsecurity.d/owasp-crs/crs-setup.conf.example
+        - ./ids1/etc/conf.d/nginx.conf.bak:/etc/nginx/conf.d/my.conf
+
       command: ["nginx", "-g", "daemon off;"]
       ports:
         - "9000:80"
+        - "9001:81"
         - "14444:4443"
       networks:
         mynet:
           ipv4_address: 192.168.30.50
+
       depends_on:
         - dvwa
- 
+        - web1
+        - web2
+
+    ids2:
+      container_name: ids2
+      image: owasp/modsecurity-crs:nginx
+      user: root
+      environment:
+        SERVERNAME: modsec3-nginx
+        BACKEND: http://192.168.0.40
+        PORT: "81"
+        MODSEC_RULE_ENGINE: "On"
+        PARANOIA: 4
+        TZ: "${TZ}"
+        ERRORLOG: "/var/log/error.log"
+        LOGLEVEL: "info"
+        ACCESSLOG: "/var/log/access.log"
+        MODSEC_AUDIT_LOG_FORMAT: Native
+        MODSEC_AUDIT_LOG_TYPE: Serial
+        MODSEC_AUDIT_LOG: "/var/log/modsec_audit.log"
+        MODSEC_RESP_BODY_ACCESS: "On"
+        MODSEC_RESP_BODY_MIMETYPE: "text/plain text/html text/xml application/json"
+        COMBINED_FILE_SIZES: "65535"
+        CRS_ENABLE_TEST_MARKER: 1
+      volumes:
+        - ./ids2/logs:/var/log/nginx:rw
+        - ./ids2/rules:/opt/owasp-crs/rules:ro
+        - ./ids2/crs-setup.conf.example:/etc/modsecurity.d/owasp-crs/crs-setup.conf.example
+        - ./ids2/etc/conf.d/nginx.conf.bak:/etc/nginx/conf.d/my.conf
+      command: ["nginx", "-g", "daemon off;"]
+      ports:
+        - "9002:80"
+        - "9003:81"
+        - "14445:4443"
+      networks:
+        mynet:
+          ipv4_address: 192.168.30.51
+      depends_on:
+        - dvwa
+        - web1
+        - web2
+
     backend:
       container_name: backend
       image: docker.io/kennethreitz/httpbin
@@ -64,7 +110,7 @@ services:
         - "80"
       networks:
         mynet:
-          ipv4_address: 192.168.30.51
+          ipv4_address: 192.168.30.52
 
     jenkins:
       build: jenkins
@@ -105,41 +151,6 @@ services:
       user: root
       container_name: dns
       hostname: ghkdtlwns987
-
-    nginx1:
-      build: nginx1
-      container_name: nginx1
-      tty: true
-      privileged: true
-      user: root
-      ports:
-        - "4480:80/tcp"
-        - "4480:80/udp"
-      volumes:
-        - ./nginx1/etc/nginx.conf:/etc/nginx/nginx.conf
-        - ./nginx1/etc/conf.d/default.conf:/etc/nginx/conf.d/default.conf
-      hostname: nginx1
-      networks:
-        mynet:
-          ipv4_address: 192.168.0.12
-
-    nginx2:
-      build: nginx2
-      container_name: nginx2
-      tty: true
-      privileged: true
-      user: root
-      ports:
-        - "4481:80/tcp"
-        - "4481:80/udp"
-      container_name: nginx2
-      hostname: nginx2
-      networks:
-        mynet:
-          ipv4_address: 192.168.0.13
-      volumes:
-        - ./nginx2/etc/nginx.conf:/etc/nginx/nginx.conf
-        - ./nginx2/etc/conf.d/default.conf:/etc/nginx/conf.d/default.conf
 
     web1:
       build: web1
