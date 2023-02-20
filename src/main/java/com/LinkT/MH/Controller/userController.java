@@ -82,7 +82,7 @@ public class userController {
         return "User/UpdateS";
     }
 
-    // Profile 페이지 이동
+    // Profile 페이지 이동e
     @RequestMapping("/Profile.do")
     public String Profile() {
 
