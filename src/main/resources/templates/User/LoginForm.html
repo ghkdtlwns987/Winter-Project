@@ -11,6 +11,9 @@
 <body>
     <div class="col-lg-8 align-self-center">
         <ul>
+            <div th:if="${param.error}">
+                <p th:text="${exception}" class="alert alert-danger"></p>
+            </div>
             <form th:action="@{/login_proc}" method="post">
                 <h2>로그인</h2>
                 <hr>

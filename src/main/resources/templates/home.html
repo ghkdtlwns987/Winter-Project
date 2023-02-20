@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>MH Server</title>
@@ -9,10 +9,26 @@
   <h2>URL Link</h2>
   <h1> 초기 비밀번호 : eeee, eeeeeeee</h1>
   <!-- 로그인하지 않았다면 회원가입, 로그인, 비밀번호 출력창을 띄움 !-->
-  <th:block th:if="${session.id == null}">
-      <li><a href="JoinForm.do">회원가입하기</a></li>
-      <li><a href="LoginForm.do">로그인하기</a></li>
-      <li><a href="FindPasswordForm.do">비밀번호 찾기</a></li>
-  </th:block>
+
+
+  <div sec:authorize="!isAuthenticated()">
+      <ul>
+          <h2>Board Link</h2>
+          <li><button><a href="JoinForm.do">회원가입</a></button></li>
+          <li><button><a href="LoginForm.do">로그인</a></button></li>
+          <li><button><a href="FindPasswordForm.do">비밀번호 찾기</a></button></li>
+      </ul>
+  </div>
+
+  <div sec:authorize="isAuthenticated()">
+      <ul>
+          <h2><div th:text="${info}"></div></h2>
+          <h2>Board Link</h2>
+
+          <li><button><a href="boardList.do">게시판 보기</a></button></li>
+          <li><button>><a href="UpdateForm.do">회원 정보 수정</a></button></li>
+          <li><button><a href="Logout.do">로그아웃</a></button></li>
+      </ul>
+  </div>
 </body>
 </html>

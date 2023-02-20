@@ -36,7 +36,7 @@ public class userController {
         return "User/UpdatePW";
     }
 
-    @GetMapping("/UpdatePW.do")
+    @PostMapping("/UpdatePW.do")
     public String FindPassword(UserVO vo){
         userService.updatePW(vo);
         return "home";
@@ -91,10 +91,9 @@ public class userController {
 
     // 회원정보 수정 Form
     @GetMapping("/UpdateForm.do")
-    public String UpdateForm(Model model, HttpServletRequest request){
-        HttpSession session = request.getSession();
-        String id = (String)session.getAttribute("id");
-        UserVO vo = userService.LoadUser(id);
+    public String UpdateForm(Model model, Authentication authentication){
+        UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
+        UserVO vo = userService.LoadUser(userVO.getId());
         model.addAttribute("userVO", vo);
         return "User/UpdateForm";
     }
@@ -104,6 +103,6 @@ public class userController {
         //Authentication 객체를 통해 유저 정보를 가져올 수 있다.
         UserVO userVO = (UserVO) authentication.getPrincipal();  //userDetail 객체를 가져옴
         model.addAttribute("info", userVO.getUserName()+ "님 안녕하세요");      //유저 아이디
-        return "User/user_access";
+        return "/home";
     }
 }
