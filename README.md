@@ -113,13 +113,16 @@
 
 <!-- ## 📌 유스케이스 -->
 <!-- 서비스 흐름도 -->
-
+<details>
+    <summary><h2>📌 서비스 흐름도</h2></summary>
+    <img src="https://user-images.githubusercontent.com/83243071/220061574-a5676ff2-80ee-4d82-93ad-e1dc94327995.png"/>
+</details>
 
 <!-- ER 다이어그램 -->
 <details>
 <summary><h2>📌 ER 다이어그램</h2></summary>
 <div markdown="1">
-    <img src="https://user-images.githubusercontent.com/83243071/220048302-f809192f-81e4-487c-ada7-49e3b49d48cc.png"/>
+    <img src="https://user-images.githubusercontent.com/83243071/220061574-a5676ff2-80ee-4d82-93ad-e1dc94327995.png"/>
 <br>
 </div>
 </details>
