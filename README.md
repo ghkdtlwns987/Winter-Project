@@ -113,8 +113,8 @@
     <td align="center"><strong>황시쭌</strong></td>
   </tr>
   <tr>
-    <td align="left"><b>- </b></td>
-    <td align="left"><b>- 강쥐</b></td>
+    <td align="left"><b>-웹페이지 제작</b></td>
+    <td align="left"><b>- 인프라<br>-Docker<br>웹페이지 </b></td>
   </tr>
   <tr>
     <td align="center"><a href="https://github.com/jiyounghi" target='_blank'>github</a></td>
