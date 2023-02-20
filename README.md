@@ -1,9 +1,9 @@
 # :birthday: LinkTogether (팀명 : MH)
-<img src=""/>
+<img src="https://user-images.githubusercontent.com/54488922/220053380-61e5ef09-596e-49ff-ab62-06fd110064ba.png"/>
 
 ## 👀 프로젝트 소개
-* 프로젝트명 : 
-* 프로젝트 설명 : 
+* 프로젝트명 : CI/CD 파이프라인 구축 및 서버 안정화 인프라 구성 및 웹 개발
+* 프로젝트 설명 : CI/CD 파이프라인을 구축하고 다양한 서버 안정화 기술을 적용하고 Spring Boot를 통한 웹 개발을 통한 MSA 이해
 
 ## 📅 프로젝트 기간
 2023.01.02 ~ 2023.02.20
@@ -57,12 +57,15 @@
         <td>
             <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=VisualStudioCode&logoColor=white"/>
             <img src="https://img.shields.io/badge/SpringBoot-6DB33F?style=flat&logo=SpringBoot&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=Docker&logoColor=white"/>
+            <img src="https://img.shields.io/badge/DockerCompose-4285F4?style=for-the-badge&logo=DockerCompose&logoColor=white"/>
         </td>
     </tr>
     <tr>
         <td>서버환경</td>
         <td>
             <img src="https://img.shields.io/badge/Apache Tomcat-D22128?style=for-the-badge&logo=Apache Tomcat&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Nginx-009639?style=for-the-badge&logo=Nginx&logoColor=white"/>
         </td>
     </tr>
     <tr>
