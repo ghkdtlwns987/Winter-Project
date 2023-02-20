@@ -26,6 +26,28 @@
             </li>
         </ul>
     </li>
+    <li><b>DNS</b>
+        <ul>
+            <li> 클러스터링 지원 </li>
+        </ul>
+    </li>
+    <li><b>WAF</b>
+        <ul>
+            <li> 웹 방화벽 기능 </li>
+            <li> 로드벨런싱(Round Robbin) </li>
+        </ul>
+    </li>
+    <li><b>Database</b>
+        <ul>
+            <li> 로드벨런싱(MySQL Replication) </li>
+        </ul>
+    </li>
+    <li><b>Jenkins</b>
+        <ul>
+            <li> CI : Build -> Test -> Slack Notification </li>
+            <li> CI : Deploy </li>
+        </ul>
+    </li>
 </ul>
 </details>
 <!-- 기술 스택 -->
@@ -50,6 +72,7 @@
         <td>라이브러리</td>
         <td>
             <img src="https://img.shields.io/badge/BootStrap-7952B3?style=for-the-badge&logo=BootStrap&logoColor=white"/>
+            <img src="https://img.shields.io/badge/Spring Security-6DB33F?style=for-the-badge&logo=Spring Security&logoColor=white"/>
         </td>
     </tr>
     <tr>
